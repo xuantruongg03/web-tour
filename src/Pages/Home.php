@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -16,6 +13,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custome styles -->
     <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     .clip-path {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
     }
@@ -72,14 +75,12 @@
     <?php include '../Components/Header/Header.php' ?>
     <div>
         <div class="relative">
-            <div class="absolute inset-0 bg-black opacity-30 "></div>
-            <h1 
-                class="absolute top-1/2 left-1/2 text-white text-center xl:text-6xl font-bold block w-full overflow-hidden whitespace-nowrap font-lora animation_title
-                        md:text-5xl sm:text-4xl"
-            >
+            <div class="absolute inset-0 bg-black opacity-30 relative z-negative"></div>
+            <h1 class="absolute top-1/2 left-1/2 text-white text-center xl:text-6xl font-bold block w-full overflow-hidden whitespace-nowrap font-lora animation_title
+                        md:text-5xl sm:text-4xl">
                 Chào mừng bạn đến với Epic Escapes! </h1>
             <img src="https://cdn.vietnambiz.vn/171464876016439296/2020/10/19/quynhonnhintucangotua-nguyen-dung-1603075894101769523040.jpg"
-                alt="background" class="w-full h-96">
+                alt="background" class="w-full h-96 relative z-negative">
         </div>
     </div>
     <div class="mt-12 min-h-screen">
@@ -91,20 +92,20 @@
         </div>
         <div class="flex justify-around flex-wrap mx-4">
             <?php
-             $transport = array("train", "plane");
-             $image = "../Image/nha-tho-lang-song.jpg"; 
-             $title = "Tour Land Tour Quy Nhơn 5 ngày 4 đêm";
-             $price = 5525000;
-             $sale = 1;
-             include "../Components/Item/Item.php"
+                $transport = array("train", "plane");
+                $image = "../Image/nha-tho-lang-song.jpg"; 
+                $title = "Tour Land Tour Quy Nhơn 5 ngày 4 đêm";
+                $price = 5525000;
+                $sale = 1;
+                include "../Components/Item/Item.php"
              ?>
             <?php 
-            $transport = array("train");
-            $image = '../Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
-            $title = "Du lịch Tết Âm lịch Quy Nhơn - Bình Định 3N2Đ từ Sài Gòn giá tốt 2022";
-            $price = 4000000;
-            $sale = 0;
-            include "../Components/Item/Item.php" 
+                $transport = array("train");
+                $image = '../Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
+                $title = "Du lịch Tết Âm lịch Quy Nhơn - Bình Định 3N2Đ từ Sài Gòn giá tốt 2022";
+                $price = 4000000;
+                $sale = 0;
+                include "../Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("plane", "ship");
@@ -141,7 +142,20 @@
         </div>
         <div>
             <?php include '../Components/Footer/Footer.php' ?>
-
+            <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        zIndex: {
+                            'negative': '-1',
+                        },
+                        colors: {
+                            'sky-1000': '#154054'
+                        }
+                    }
+                }
+            }
+            </script>
 </body>
 
 </html>
