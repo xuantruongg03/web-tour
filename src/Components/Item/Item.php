@@ -2,7 +2,7 @@
                 <div class="relative group">
                     <?php
                     if ($sale != 0) {
-                        echo '<div class="absolute top-0 left-3 bg-red-600 h-14 w-12 text-white p-1 pl-3 clip-path">
+                        echo '<div class="absolute top-0 left-3 bg-red-600 h-14 w-12 text-white pl-3 pt-2 clip-path">
                             '.str_pad($sale, 2, '0', STR_PAD_LEFT).'%
                             </div>';
                     }
@@ -25,21 +25,21 @@
                         foreach ($transport as $item) {
                             if (strcmp($item, "train") == 0) {
                                 echo '<div class="bg-white p-1 mr-2">
-                                        <img class=""
+                                        <img
                                         src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_1.png?1671122588148"
                                         alt="transport">
                                      </div>';
                             } 
                             if (strcmp($item, "plane") == 0) {
                                 echo '<div class="bg-white p-1 mr-2">
-                                        <img class=""
+                                        <img
                                         src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_3.png?1671122588148"
                                         alt="transport">
                                     </div>';
                             }
                             if (strcmp($item, "ship") == 0) {
                                 echo '<div class="bg-white p-1 mr-2">
-                                        <img class=""
+                                        <img
                                         src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_2.png?1671122588148"
                                         alt="transport">
                                     </div>';

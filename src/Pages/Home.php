@@ -38,38 +38,30 @@
         animation: animation 1s infinite;
     }
 
-    .home__title{
-        position: absolute;
-        top: 40%;
-        left: 50%;
+    .animation_title {
         transform: translate(-50%, -50%);
-        color: white;
-        font-size: 50px;
-        font-weight: bold;
-        display: block;
-        text-align: center;
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 4s steps(52), 
-                    blink step-end 0.5s infinite alternate;
+        animation: typing 3s steps(52),
+            blink step-end 0.5s infinite alternate;
     }
 
     @keyframes typing {
-        from{
+        from {
             width: 0;
         }
     }
+
     @keyframes blink {
-        50%{
+        50% {
             border-color: transparent;
         }
     }
+
     @font-face {
         font-family: 'lora';
         src: url("./Font/Lora-SemiBold.ttf");
     }
-    .font-lora{
+
+    .font-lora {
         font-family: 'lora';
     }
     </style>
@@ -77,11 +69,18 @@
 </head>
 
 <body>
-    <?php include '../Header/Header.php' ?>
+    <?php include '../Components/Header/Header.php' ?>
     <div>
-        <h1 class="home__title font-lora">Chào mừng bạn đến với Epic Escapes! </h1>
-        <img src="https://cdn.vietnambiz.vn/171464876016439296/2020/10/19/quynhonnhintucangotua-nguyen-dung-1603075894101769523040.jpg"
-            alt="background" class="w-full h-96">
+        <div class="relative">
+            <div class="absolute inset-0 bg-black opacity-30 "></div>
+            <h1 
+                class="absolute top-1/2 left-1/2 text-white text-center xl:text-6xl font-bold block w-full overflow-hidden whitespace-nowrap font-lora animation_title
+                        md:text-5xl sm:text-4xl"
+            >
+                Chào mừng bạn đến với Epic Escapes! </h1>
+            <img src="https://cdn.vietnambiz.vn/171464876016439296/2020/10/19/quynhonnhintucangotua-nguyen-dung-1603075894101769523040.jpg"
+                alt="background" class="w-full h-96">
+        </div>
     </div>
     <div class="mt-12 min-h-screen">
         <div class="mb-12">
@@ -93,55 +92,55 @@
         <div class="flex justify-around flex-wrap mx-4">
             <?php
              $transport = array("train", "plane");
-             $image = "https://cdn.vietnambiz.vn/171464876016439296/2020/10/19/quynhonnhintucangotua-nguyen-dung-1603075894101769523040.jpg"; 
-             $title = "Seim Reap - Phnom Penh (Khách sạn 3 sao), tour tiết kiệm";
-             $price = 6000000;
-             $sale = 10;
-             include "./Item.php"
+             $image = "../Image/nha-tho-lang-song.jpg"; 
+             $title = "Tour Land Tour Quy Nhơn 5 ngày 4 đêm";
+             $price = 5525000;
+             $sale = 1;
+             include "../Components/Item/Item.php"
              ?>
             <?php 
             $transport = array("train");
-            $image = './Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
+            $image = '../Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
             $title = "Du lịch Tết Âm lịch Quy Nhơn - Bình Định 3N2Đ từ Sài Gòn giá tốt 2022";
             $price = 4000000;
             $sale = 0;
-            include "./Item.php" 
+            include "../Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("plane", "ship");
-                $image = "./Image/du-lich-binh-dinh-he-2019.jpg";
+                $image = "../Image/du-lich-binh-dinh-he-2019.jpg";
                 $title = "Du lịch Phú Yên - Quy Nhơn - Kỳ Co - KDL Hầm Hồ từ Sài Gòn giá tốt 2021";
                 $price = 4500000;
                 $sale = 2; 
-                include "./Item.php" 
+                include "../Components/Item/Item.php" 
             ?>
             <?php 
                 $transport = array("plane");
-                $image = "./Image/kinh-nghiem-tua-du-lich-tet-quy-nhon-gia-re.jpg";
+                $image = "../Image/kinh-nghiem-tua-du-lich-tet-quy-nhon-gia-re.jpg";
                 $title = "Du lịch Tết Nguyên Đán Quy Nhơn - Bình Định 3 ngày từ Sài Gòn 2021";
                 $price = 5500000;
                 $sale = 10; 
-                include "./Item.php" 
+                include "../Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("plane", "ship");
-                $image = "./Image/tour-du-lich-binh-dinh-mua-thu.jpg";
+                $image = "../Image/tour-du-lich-binh-dinh-mua-thu.jpg";
                 $title = "Du lịch Quy Nhơn – Bãi Dứa – Eo Gió mùa Thu khởi hành từ Sài Gòn";
                 $price = 2700000;
                 $sale = 0;  
-                include "./Item.php" 
+                include "../Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("ship");
-                $image = "./Image/quy-nhon.jpg";
+                $image = "../Image/quy-nhon.jpg";
                 $title = "Du lịch Miền Trung - Quy Nhơn - Phú Yên dịp Tết Dương lịch từ Sài Gòn giá tốt";
                 $price = 4700000;
                 $sale = 0;  
-                include "./Item.php" 
+                include "../Components/Item/Item.php" 
             ?>
         </div>
         <div>
-    <?php include '../Footer/Footer.php' ?>
+            <?php include '../Components/Footer/Footer.php' ?>
 
 </body>
 
