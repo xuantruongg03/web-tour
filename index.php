@@ -67,12 +67,31 @@
     .font-lora {
         font-family: 'lora';
     }
+
+    .title:before,
+    .title:after {
+        position: absolute;
+        content: '';
+        bottom: 2px;
+        width: 215px;
+        height: 2px;
+        background-color: gray;
+    }
+
+    .title:before {
+        left: 50%;
+        margin-left: -265px;
+    }
+    .title:after{
+        right: 50%;
+        margin-right: -265px;
+    }
     </style>
     <title>Home</title>
 </head>
 
 <body>
-    <?php include '../Components/Header/Header.php' ?>
+    <?php include 'src/Components/Header/Header.php' ?>
     <div>
         <div class="relative">
             <div class="absolute inset-0 bg-black opacity-30 relative z-negative"></div>
@@ -84,64 +103,64 @@
         </div>
     </div>
     <div class="mt-12 min-h-screen">
-        <div class="mb-12">
-            <h1 class="font-bold text-sky-500 text-center text-3xl">Tuor trong nước</h1>
-            <p class="text-center">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình mình
+        <div class="mb-12 title relative">
+            <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour trong nước</h1>
+            <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình mình
                 cùng
                 quây quần bên nhau.</p>
         </div>
         <div class="flex justify-around flex-wrap mx-4">
             <?php
                 $transport = array("train", "plane");
-                $image = "../Image/nha-tho-lang-song.jpg"; 
+                $image = "src/Image/nha-tho-lang-song.jpg"; 
                 $title = "Tour Land Tour Quy Nhơn 5 ngày 4 đêm";
                 $price = 5525000;
                 $sale = 1;
-                include "../Components/Item/Item.php"
+                include "src/Components/Item/Item.php"
              ?>
             <?php 
                 $transport = array("train");
-                $image = '../Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
+                $image = 'src/Image/du-lich-tet-am-lich-quy-nhon-gia-tot.jpg';
                 $title = "Du lịch Tết Âm lịch Quy Nhơn - Bình Định 3N2Đ từ Sài Gòn giá tốt 2022";
                 $price = 4000000;
                 $sale = 0;
-                include "../Components/Item/Item.php" 
+                include "src/Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("plane", "ship");
-                $image = "../Image/du-lich-binh-dinh-he-2019.jpg";
+                $image = "src/Image/du-lich-binh-dinh-he-2019.jpg";
                 $title = "Du lịch Phú Yên - Quy Nhơn - Kỳ Co - KDL Hầm Hồ từ Sài Gòn giá tốt 2021";
                 $price = 4500000;
                 $sale = 2; 
-                include "../Components/Item/Item.php" 
+                include "src/Components/Item/Item.php" 
             ?>
             <?php 
                 $transport = array("plane");
-                $image = "../Image/kinh-nghiem-tua-du-lich-tet-quy-nhon-gia-re.jpg";
+                $image = "src/Image/kinh-nghiem-tua-du-lich-tet-quy-nhon-gia-re.jpg";
                 $title = "Du lịch Tết Nguyên Đán Quy Nhơn - Bình Định 3 ngày từ Sài Gòn 2021";
                 $price = 5500000;
                 $sale = 10; 
-                include "../Components/Item/Item.php" 
+                include "src/Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("plane", "ship");
-                $image = "../Image/tour-du-lich-binh-dinh-mua-thu.jpg";
+                $image = "src/Image/tour-du-lich-binh-dinh-mua-thu.jpg";
                 $title = "Du lịch Quy Nhơn – Bãi Dứa – Eo Gió mùa Thu khởi hành từ Sài Gòn";
                 $price = 2700000;
                 $sale = 0;  
-                include "../Components/Item/Item.php" 
+                include "src/Components/Item/Item.php" 
             ?>
             <?php
                 $transport = array("ship");
-                $image = "../Image/quy-nhon.jpg";
+                $image = "src/Image/quy-nhon.jpg";
                 $title = "Du lịch Miền Trung - Quy Nhơn - Phú Yên dịp Tết Dương lịch từ Sài Gòn giá tốt";
                 $price = 4700000;
                 $sale = 0;  
-                include "../Components/Item/Item.php" 
+                include "src/Components/Item/Item.php" 
             ?>
         </div>
         <div>
-            <?php include '../Components/Footer/Footer.php' ?>
+            <?php include 'src/Components/Footer/Footer.php' ?>
             <script>
             tailwind.config = {
                 theme: {
