@@ -171,19 +171,19 @@
                                 <div class="flex h-full">
 
                                     <a href="/"
-                                        class="hover:bg-sky-500 hover:text-white text-white py-2 text-sm font-medium w-20 text-center"
+                                        class="hover:bg-sky-500 hover:text-white text-white py-2 px-2 text-sm font-medium w-24 text-center"
                                         aria-current="page">Trang chủ</a>
 
                                     <a href="/about"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 text-sm font-medium w-20 text-center">Giới
+                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
                                         thiệu</a>
 
                                     <a href="/tour"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 text-sm font-medium w-20 text-center">Tour
+                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Tour
                                         du lịch</a>
 
                                     <a href="/faq"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 text-sm font-medium w-20 text-center">FAQ</a>
+                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
                                 </div>
                             </div>
                         </div>
