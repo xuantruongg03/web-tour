@@ -293,51 +293,26 @@
 
 # Cơ sở dữ liệu
 1. Bảng các tour
-   - ID tour: Kiểu số
+   - ID tour: Kiểu số, tụ tăng, khóa chính
    - Tiêu đề: Kiểu chuỗi
-   - Hình ảnh: Kiểu chuỗi (Lưu ảnh trên cloud và lưu đường dẫn vào db)
+   - Hình ảnh: Kiểu chuỗi
    - Giá bán: Kiểu số
    - Mức giảm giá: Kiểu số (đơn vị %)
    - Số lượng: Kiểu số
    - Địa điểm: Kiểu chuỗi
-2. Bảng hướng dẫn viên
-   - ID hướng dẫn viên: kiểu số, tự tăng
-   - Họ tên: Kiểu chuỗi
-   - Ngày sinh: kiểu chuỗi
-   - CCCD: kiểu chuỗi
-   - Quê quán: Kiểu chuỗi
-   - Hình ảnh: Kiểu chuỗi (Lưu ảnh trên 1 cloud và lưu link tại db)
-   - Giới thiệu: Kiểu chuỗi
-   - Ngày nhận việc: Kiểu datetime, lấy ngày tạo
-3. Bảng đơn hàng
-   - ID đơn hàng: Kiểu số (tự tăng)
-   - ID tour: Kiểu số
-   - ID hướng dẫn viên: Kiểu số
+2. Bảng đơn hàng
+   - ID đơn hàng: Kiểu số (tự tăng), khóa chính
+   - ID tour: Kiểu số, tham chiếu đến bảng tour
    - Tên người đặt: Kiểu chuỗi
    - Số điện thoại người đặt: Kiểu chuỗi
    - Căn cước công dân người đặt: Kiểu chuỗi
    - Ngày khởi hành: Kiểu date
-4. Bảng bài viết
-    - ID bài viết: Kiểu số, tự tăng
-    - Tiêu đề: Kiểu chuỗi
-    - Danh mục: Kiểu chuỗi
-    - Nội dung: Kiểu chuỗi
-5. Bảng admin
-    - ID admin: Kiểu số (tự tăng)
-    - Tên đăng nhập: Kiểu chuỗi
-    - Mật khẩu: Kiểu chuỗi
-6.  Bảng người dùng
-    - ID người dùng: Kiểu số (tự tăng)
-    - Tên đăng nhập: Kiểu chuỗi
-    - Mật khẩu: Kiểu chuỗi
-    - Tên người dùng: kiểu chuỗi
-    - Số điện thoại: Kiểu chuỗi
-7. Bảng đánh giá
-    - ID bảng đánh giá: Kiểu số, tự tăng
-    - ID tour: kiểu số
+3. Bảng đánh giá
+    - ID bảng đánh giá: Kiểu số, tự tăng, khóa chính
+    - ID tour: kiểu số, tham chiếu đến bảng tour
     - Lời đánh giá: Kiểu chuỗi
     - Ngày đánh giá: Kiểu date
-8. FAQ
+4. FAQ
     - ID FAQ: kiểu số (tự tăng)
     - Câu hỏi: Kiểu chuỗi
     - Câu trả lời: Kiểu chuỗi
