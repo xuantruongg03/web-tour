@@ -67,24 +67,12 @@
     .font-lora {
         font-family: 'lora';
     }
-    @keyframes translate {
-            0% {
-                transform: translateY(0);
-            }
 
-            100% {
-                transform: translateY(-50px);
-            }
-        }
-        .group:hover > .home__label{
-            animation: translate 0.5s ease-in-out;
-            animation-fill-mode: forwards;
-        }
     </style>
     <title>Home</title>
 </head>
 
-<body>
+<body class="relative">
     <?php include 'src/Components/Header/Header.php' ?>
     <div>
         <div class="relative">
@@ -105,7 +93,7 @@
                 quây quần bên nhau.</p>
         </div>
         <div class="flex justify-between flex-wrap mx-24">
-            
+
             <?php
                 include "src/config/connectDB.php";
                 $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_type = 'Tour nội địa'";
@@ -145,17 +133,20 @@
         <div class="flex my-10 w-full h-full">
             <div class="h-full w-1/2 lg:w-1/3 relative">
                 <img src="src/Image/banner.png" alt="banner">
-                <a href="#" class="absolute left-1/2 top-1/2 h-9 w-9 z-50">
+                <div class="absolute left-1/2 top-1/2 h-9 w-9 z-50" id="play">
                     <i class="fas fa-regular fa-play text-4xl text-white hover:cursor-pointer"></i>
-                </a>
+                </div>
                 <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-20 z-0"></div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 lg:w-2/3 w-5/6">
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image1.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
-                        <div class="p-2 mb-2 group-hover:-translate-y-50 transition duration-500 ease-in-out">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                        <div class="p-2 mb-2 group-hover:-translate-y-50 transition duration-500 ease-in-out">Vịnh Hạ
+                            Long</div>
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -163,9 +154,11 @@
                 </div>
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image2.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -173,9 +166,11 @@
                 </div>
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image1.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -183,9 +178,11 @@
                 </div>
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image2.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -193,9 +190,11 @@
                 </div>
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image1.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -203,9 +202,11 @@
                 </div>
                 <div class="relative group">
                     <img class="h-full" src="src/Image/place_image2.png" alt="Vịnh Hạ Long">
-                    <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Vịnh Hạ Long</div>
-                        <button class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
+                        <button
+                            class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
                             <a href="#">Khám phá</a>
                         </button>
                     </div>
@@ -218,10 +219,11 @@
     <div class="mt-12 min-h-screen">
         <div class="mb-12 title relative">
             <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour ngoại quốc</h1>
-            <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình mình cùng quây quần bên nhau.</p>
+            <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình
+                mình cùng quây quần bên nhau.</p>
         </div>
         <div class="flex justify-between flex-wrap mx-24">
-        <?php
+            <?php
                 include "src/config/connectDB.php";
                 $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_type = 'Tour ngoại quốc'";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
@@ -246,6 +248,7 @@
                         $title = $row['tour_title'];
                         $price = $row['tour_price'];
                         $sale = $row['tour_discount_rate'];
+                        $id = $row['tour_id'];
                         include "src/Components/Item/Item.php";
                     }
                 } else {
@@ -254,22 +257,42 @@
             ?>
         </div>
     </div>
-    <div>
-        <?php include 'src/Components/Footer/Footer.php' ?>
-        <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    zIndex: {
-                        'negative': '-1',
-                    },
-                    colors: {
-                        'sky-1000': '#154054'
-                    }
+    <div class="hidden absolute w-full h-full top-0 left-0 bg-black bg-opacity-50 z-50" id="video-wallpaper">
+        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="text-white text-2xl float-right -translate-y-7 cursor-pointer" id="close">
+                <i class="fas fa-light fa-circle-xmark"></i>
+            </div>
+            <video src="" width="520" height="520" controls></video>
+        </div>
+    </div>
+    <?php include 'src/Components/Footer/Footer.php' ?>
+    <script>
+    //JS
+    const videoWapper = document.getElementById('video-wallpaper');
+    const playBtn = document.getElementById('play');
+    const closeBtn = document.getElementById('close');
+    playBtn.addEventListener('click', () => {
+        videoWapper.classList.remove('hidden');
+        videoWapper.querySelector('video').src = '';
+    })
+    closeBtn.addEventListener('click', () => {
+        videoWapper.classList.add('hidden');
+        videoWapper.querySelector('video').src = '';
+    })
+    //config tailwind
+    tailwind.config = {
+        theme: {
+            extend: {
+                zIndex: {
+                    'negative': '-1',
+                },
+                colors: {
+                    'sky-1000': '#154054'
                 }
             }
         }
-        </script>
+    }
+    </script>
 </body>
 
 </html>
