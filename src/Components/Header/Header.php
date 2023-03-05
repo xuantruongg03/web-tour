@@ -132,12 +132,10 @@
 </head>
 
 <body>
-
-    <body>
         <header class="header__header">
             <div class="header__box">
                 <div class="header__logo">
-                    <img class="header__img" src="src/Image/logo.png" alt="logo">
+                    <img class="header__img" src="/web-tour/src/Image/logo.png" alt="logo">
                 </div>
                 <div class="header__search">
                     <input class="header__input_search" type="text" placeholder="Từ khóa tìm kiếm">
@@ -170,15 +168,15 @@
                             <div class="hidden m-0 sm:ml-6 sm:block">
                                 <div class="flex h-full">
 
-                                    <a href="/"
+                                    <a href="../../index.php"
                                         class="hover:bg-sky-500 hover:text-white text-white py-2 px-2 text-sm font-medium w-24 text-center"
                                         aria-current="page">Trang chủ</a>
 
-                                    <a href="/about"
+                                    <a href="about.php"
                                         class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
                                         thiệu</a>
 
-                                    <a href="/tour"
+                                    <a href="./src/Pages/AllTour.php"
                                         class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Tour
                                         du lịch</a>
 
@@ -238,6 +236,4 @@
         }
         </script>
     </body>
-</body>
-
 </html>

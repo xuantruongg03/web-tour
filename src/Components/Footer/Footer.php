@@ -4,7 +4,7 @@
     background-size: cover;
     padding: 50px 0;
     position: relative;
-    min-height: 300px;
+    min-height: 270px;
     background-repeat: no-repeat;
 }
 

@@ -1,3 +1,53 @@
+<?php
+    if (!function_exists('create_slug')) {
+        function create_slug($string)
+        {
+            $search = array(
+                '#(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)#',
+                '#(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)#',
+                '#(ì|í|ị|ỉ|ĩ)#',
+                '#(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)#',
+                '#(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)#',
+                '#(ỳ|ý|ỵ|ỷ|ỹ)#',
+                '#(đ)#',
+                '#(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)#',
+                '#(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)#',
+                '#(Ì|Í|Ị|Ỉ|Ĩ)#',
+                '#(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)#',
+                '#(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)#',
+                '#(Ỳ|Ý|Ỵ|Ỷ|Ỹ)#',
+                '#(Đ)#',
+                "/[^a-zA-Z0-9\-\_]/",
+            );
+            $replace = array(
+                'a',
+                'e',
+                'i',
+                'o',
+                'u',
+                'y',
+                'd',
+                'A',
+                'E',
+                'I',
+                'O',
+                'U',
+                'Y',
+                'D',
+                '-',
+            );
+            $string = preg_replace($search, $replace, $string);
+            $string = preg_replace('/(-)+/', '-', $string);
+            $string = strtolower($string);
+            return $string;
+        }
+    }
+?>
+<style>
+    .clip-path {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
+    }
+</style>
 <div class="xl:w-96 sm:w-10/12 md:w-1/3 h-96 border-2 drop-shadow my-5 mx-2">
     <div class="relative group">
         <?php
@@ -13,7 +63,7 @@
             </div>
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <button class="hidden group-hover:block w-24 h-8 rounded-3xl bg-sky-500 p-1 text-sm text-white font-semibold animation-btn">
-                    <a href="/tour/<?php include "src/Components/slug.php"; echo create_slug($title)?>?q=<?php echo $id?>">Chi tiết</a>
+                    <a href="/tour/<?php echo create_slug($title)?>?q=<?php echo $id?>">Chi tiết</a>
                 </button>
             </div>
         </div>
@@ -45,7 +95,7 @@
                         ?>
         </div>
     </div>
-    <a href="#" title="Seim Reap - Phnom Penh (Khách sạn 3 sao), tour tiết kiệm"
+    <a href="#" title="<?php echo $title?>"
         class="xl:text-base font-semibold p-2 truncate block cursor-pointer hover:text-sky-500">
         <?php echo $title ?>
     </a>
