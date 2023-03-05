@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour du lịch</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .clip-path {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
+    }
+    </style>
 </head>
 
 <body>
@@ -39,6 +44,7 @@
         </div>
     </div>
     <div class="w-5/6 flex flex-wrap mx-40 mt-2 tours">
+        <!-- Hiển thị tát cả tour du lịch -->
         <?php
                 include "../config/connectDB.php";
                 $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
@@ -77,53 +83,19 @@
     <script type="text/JavaScript">
         const search = document.getElementById('search');
         const tours = document.getElementsByClassName('tours')[0];
-    search.addEventListener('click', function() {
-        tours.innerText = '';
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', `../module/getTours.php`, true);
-        xhr.onload = function() {
-            if (this.status === 200) {
-                const data = JSON.parse(this.responseText);
-                if (data.length > 0) {
-                data.forEach(function(item) {
-                    const div = document.createElement('div');
-                    div.innerHTML = `
-                    <div class="xl:w-96 sm:w-10/12 md:w-1/3 h-96 border-2 drop-shadow my-5 mx-2">
-                    <div class="relative group">
-                            ${item.sale > 0 ? `<div class="absolute top-0 left-0 bg-red-500 text-white font-bold text-sm px-2 py-1 rounded-bl-3xl rounded-tr-3xl">-${item.sale}%
-                            </div>` : ''}
-                    <div class="group">
-                    <img class="h-64 w-full" src=${item.image} alt="place">
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-500 ease-in-out">
-                    </div>
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <button class="hidden group-hover:block w-24 h-8 rounded-3xl bg-sky-500 p-1 text-sm text-white font-semibold animation-btn">
-                            <a href="/tour/${item.title}?q=${item.id}">Chi tiết</a>
-                        </button>
-                    </div>
-                </div>
-                <div class="absolute bottom-3 right-3 flex">    
-                    <div class="bg-white p-1 mr-2">
-                        <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_1.png?1671122588148" alt="transport">
-                    </div>
-                    <div class="bg-white p-1 mr-2">
-                        <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_3.png?1671122588148" alt="transport">
-                    </div>
-                </div>
-            </div>
-            <a href="#" title="${item.title}"
-                class="xl:text-base font-semibold p-2 truncate block cursor-pointer hover:text-sky-500">
-                ${item.title}
-            </a>
-            <div class="flex border-t-2 p-1 mx-3 drop-shadow-none mt-4">
-                <p class="xl:text-2xl text-sky-500 font-semibold mr-3 mt-2">
-                    ${item.price} VNĐ
-                </p>
-                <p class="xl:text-base text-gray-500 line-through mt-2">
-                    ${item.price + item.price * item.sale / 100} VNĐ
-            </div>
-        </div>`;
-                tours.appendChild(div);
+        search.addEventListener('click', function() {
+            tours.innerText = '';
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', `../module/getTours.php`, true);
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    const data = JSON.parse(this.responseText);
+                    if (data.length > 0) {
+                    data.forEach(function(item) {
+                        const priceSale = Number(item.price) - (Number(item.price) * Number(item.sale) / 100);
+                        const div = document.createElement('div');
+                        div.innerHTML = `<div class="xl:w-96 sm:w-10/12 md:w-1/3 h-96 border-2 drop-shadow my-5 mx-2"> <div class="relative group"> ${item.sale > 0 ? `<div class="absolute top-0 left-3 bg-red-600 h-14 w-12 text-white pl-2 pt-2 clip-path"> -${item.sale}% </div>` : ''} <div class="group"> <img class="h-64 w-full" src=${item.image} alt="place"> <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-500 ease-in-out"> </div> <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"> <button class="hidden group-hover:block w-24 h-8 rounded-3xl bg-sky-500 p-1 text-sm text-white font-semibold animation-btn"> <a href="/tour/${item.title}?q=${item.id}">Chi tiết</a> </button> </div> </div> <div class="absolute bottom-3 right-3 flex"> <div class="bg-white p-1 mr-2"> <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_1.png?1671122588148" alt="transport"> </div> <div class="bg-white p-1 mr-2"> <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_3.png?1671122588148" alt="transport"> </div> </div> </div> <a href="#" title="${item.title}" class="xl:text-base font-semibold p-2 truncate block cursor-pointer hover:text-sky-500"> ${item.title} </a> <div class="flex border-t-2 p-1 mx-3 drop-shadow-none mt-4"> <p class="xl:text-2xl text-sky-500 font-semibold mr-3 mt-2"> ${item.price} VNĐ </p> ${item.sale != 0 ? `<p class="text-sm leading-8 text-gray-400 line-through mt-3"> ${priceSale} VNĐ </p>` : ''} </div>`;
+                        tours.appendChild(div);
             })
             } else {
                 const h1 = document.createElement('h1');
