@@ -47,6 +47,24 @@
     .clip-path {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
     }
+    
+    @keyframes animation {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .animation-btn {
+        animation: animation 1s infinite;
+    }
 </style>
 <div class="xl:w-96 sm:w-10/12 md:w-1/3 h-96 border-2 drop-shadow my-5 mx-2">
     <div class="relative group">
