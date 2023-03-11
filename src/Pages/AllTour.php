@@ -21,7 +21,7 @@
         <div class="">
             <h1 class="font-bold text-sky-500 text-3xl text-center my-10">Tour du lịch</h1>
             <div class='flex'>
-                <div class="mx-20 w-60">
+                <div class="mx-16 w-56">
                     <h2 class="font-bold text-xl w-32 uppercase">Danh mục</h2>
                     <div class="mt-4">
                         <h3 class="font-bold text-base uppercase">Khoảng Giá</h3>
@@ -80,52 +80,41 @@
                         </div>
                     </div>
                     <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Loại tour</h1>
+                        <h1 class="font-bold text-base uppercase">Vùng miền</h1>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="dometic" class="checked:accent-blue-500">
-                            <label for="dometic" class="ml-3 text-sm text-slate-400 w-32">Du lịch nước ngoài</label>
+                            <input type="radio" name="dometic" id="dometic1" class="checked:accent-blue-500">
+                            <label for="dometic1" class="ml-3 text-sm text-slate-400">Miền Bắc</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="foreign" id="foreign" class="checked:accent-blue-500">
-                            <label for="foreign" class="ml-3 text-sm text-slate-400 w-32">Du lịch trong nước</label>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Trong nước</h1>
-                        <div class="flex">
-                            <input type="radio" name="dometic1" id="dometic1" class="checked:accent-blue-500">
-                            <label for="dometic1" class="ml-3 text-sm text-slate-400">Hạ Long</label>
+                            <input type="radio" name="dometic" id="dometic2" class="checked:accent-blue-500">
+                            <label for="dometic2" class="ml-3 text-sm text-slate-400">Miền Trung</label>
                         </div>
                         <div class="flex">
-                            <input type="radio" name="dometic2" id="dometic2" class="checked:accent-blue-500">
-                            <label for="dometic2" class="ml-3 text-sm text-slate-400">Quảng Ninh</label>
-                        </div>
-                        <div class="flex">
-                            <input type="radio" name="dometic3" id="dometic3" class="checked:accent-blue-500">
-                            <label for="dometic3" class="ml-3 text-sm text-slate-400">Nghệ An</label>
-                        </div>
-                        <div class="flex">
-                            <input type="radio" name="dometic4" id="dometic4" class="checked:accent-blue-500">
-                            <label for="dometic4" class="ml-3 text-sm text-slate-400">Đà Nẵng</label>
-                        </div>
-                        <div class="flex">
-                            <input type="radio" name="dometic5" id="dometic5" class="checked:accent-blue-500">
-                            <label for="dometic5" class="ml-3 text-sm text-slate-400">Tam Đảo</label>
+                            <input type="radio" name="dometic" id="dometic3" class="checked:accent-blue-500">
+                            <label for="dometic3" class="ml-3 text-sm text-slate-400">Miền Nam</label>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Nước ngoài</h1>
+                        <h1 class="font-bold text-base uppercase">Địa điểm</h1>
                         <div class="flex">
-                            <input type="checkbox" name="foreign1" id="foreign1" class="checked:accent-blue-500">
-                            <label for="foreign1" class="ml-3 text-sm text-slate-400">Châu Á</label>
+                            <input type="checkbox" name="dometic" id="place1" class="checked:accent-blue-500">
+                            <label for="place1" class="ml-3 text-sm text-slate-400">Ninh Bình</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="foreign2" id="foreign2" class="checked:accent-blue-500">
-                            <label for="foreign2" class="ml-3 text-sm text-slate-400">Châu Âu</label>
+                            <input type="checkbox" name="dometic" id="place2" class="checked:accent-blue-500">
+                            <label for="place2" class="ml-3 text-sm text-slate-400">Đà Nẵng</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="foreign3" id="foreign3" class="checked:accent-blue-500">
-                            <label for="foreign3" class="ml-3 text-sm text-slate-400">Châu Mỹ</label>
+                            <input type="checkbox" name="dometic" id="place3" class="checked:accent-blue-500">
+                            <label for="place3" class="ml-3 text-sm text-slate-400">Quy Nhơn</label>
+                        </div>
+                        <div class="flex">
+                            <input type="checkbox" name="dometic" id="place4" class="checked:accent-blue-500">
+                            <label for="place4" class="ml-3 text-sm text-slate-400">Nha Trang</label>
+                        </div>
+                        <div class="flex">
+                            <input type="checkbox" name="dometic" id="place5" class="checked:accent-blue-500">
+                            <label for="place5" class="ml-3 text-sm text-slate-400">Vũng Tàu</label>
                         </div>
                     </div>
                     <div class="mt-4">

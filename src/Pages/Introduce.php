@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Giới thiệu</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+<?php include '../Components/Header/Header.php' ?>
     <div>
         <div class="mt-5">
-            <h1 class="text-2xl font-bold text-sky-500 text-center">Giới thiệu</h1>
+            <h1 class="text-3xl font-bold text-sky-500 text-center">Giới thiệu</h1>
         </div>
-        <div class="mx-44">
+        <div class="mx-44 my-3">
             <ul class="list-disc ">
                 <li class="mt-3">
                     <h1 class="text-lg font-bold ">Tổng quan</h1>
@@ -88,6 +89,7 @@
             </ul>
         </div>
     </div>
+    <?php include '../Components/Footer/Footer.php'?>
 </body>
 
 </html>

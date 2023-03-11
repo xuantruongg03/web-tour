@@ -138,7 +138,7 @@
                     <img class="header__img" src="/web-tour/src/Image/logo.png" alt="logo">
                 </div>
                 <div class="header__search">
-                    <input class="header__input_search" type="text" placeholder="Từ khóa tìm kiếm">
+                    <input class="header__input_search focus:outline-none" type="text" placeholder="Từ khóa tìm kiếm">
                     <i class="fas fa-search header__icon_search"></i>
                 </div>
             </div>
@@ -172,11 +172,11 @@
                                         class="hover:bg-sky-500 hover:text-white text-white py-2 px-2 text-sm font-medium w-24 text-center"
                                         aria-current="page">Trang chủ</a>
 
-                                    <a href="about.php"
+                                    <a href="/web-tour/src/Pages/Introduce.php"
                                         class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
                                         thiệu</a>
 
-                                    <a href="./src/Pages/AllTour.php"
+                                    <a href="/web-tour/src/Pages/AllTour.php"
                                         class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Tour
                                         du lịch</a>
 
