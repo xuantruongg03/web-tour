@@ -132,108 +132,125 @@
 </head>
 
 <body>
-        <header class="header__header">
-            <div class="header__box">
-                <div class="header__logo">
-                    <img class="header__img" src="/web-tour/src/Image/logo.png" alt="logo">
-                </div>
-                <div class="header__search">
-                    <input class="header__input_search focus:outline-none" type="text" placeholder="Từ khóa tìm kiếm">
-                    <i class="fas fa-search header__icon_search"></i>
-                </div>
+    <header class="header__header">
+        <div class="header__box">
+            <div class="header__logo">
+                <img class="header__img" src="/web-tour/src/Image/logo.png" alt="logo">
             </div>
-            <nav class="sm:h-8">
-                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                    <div class="relative flex sm:h-9 items-center justify-between">
-                        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                            <!-- Mobile menu button-->
-                            <button type="button"
-                                class="inline-flex items-center justify-center rounded-md p-1 text-white hover:bg-sky-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                                aria-controls="mobile-menu" aria-expanded="false" id="btn-nav">
-                                <span class="sr-only">Open main menu</span>
+            <div class="header__search">
+                <input class="header__input_search focus:outline-none" type="text" placeholder="Từ khóa tìm kiếm">
+                <i class="fas fa-search header__icon_search"></i>
+            </div>
+            <div class = "text-white text-sm hidden sm:block" id="login">
+                <a href="/web-tour/src/Pages/Login.php">
+                    Đăng Nhập
+                </a>
+                <span>/</span>
+                <a href="/web-tour/src/pages/Register.php">
+                    Đăng ký
+                </a>
+            </div>
+        </div>
+        <nav class="sm:h-8">
+            <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div class="relative flex sm:h-9 items-center justify-between">
+                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button"
+                            class="inline-flex items-center justify-center rounded-md p-1 text-white hover:bg-sky-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                            aria-controls="mobile-menu" aria-expanded="false" id="btn-nav">
+                            <span class="sr-only">Open main menu</span>
 
-                                <svg class="block h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                </svg>
+                            <svg class="block h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
 
-                                <svg class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="flex sm:items-stretch sm:justify-start h-9">
-                            <div class="hidden m-0 sm:ml-6 sm:block">
-                                <div class="flex h-full">
+                            <svg class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex sm:items-stretch sm:justify-start h-9">
+                        <div class="hidden m-0 sm:ml-6 sm:block">
+                            <div class="flex h-full">
 
-                                    <a href="../../index.php"
-                                        class="hover:bg-sky-500 hover:text-white text-white py-2 px-2 text-sm font-medium w-24 text-center"
-                                        aria-current="page">Trang chủ</a>
+                                <a href="../../index.php"
+                                    class="hover:bg-sky-500 hover:text-white text-white py-2 px-2 text-sm font-medium w-24 text-center"
+                                    aria-current="page">Trang chủ</a>
 
-                                    <a href="/web-tour/src/Pages/Introduce.php"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
-                                        thiệu</a>
+                                <a href="/web-tour/src/Pages/Introduce.php"
+                                    class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
+                                    thiệu</a>
 
-                                    <a href="/web-tour/src/Pages/AllTour.php"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Tour
-                                        du lịch</a>
+                                <a href="/web-tour/src/Pages/AllTour.php"
+                                    class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Tour
+                                    du lịch</a>
 
-                                    <a href="/faq"
-                                        class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
-                                </div>
+                                <a href="/faq"
+                                    class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="sm:hidden absolute top-30 left-0 z-10 w-full bg-sky-1000 text-white" id="mobile-menu">
-                    <div class="space-y-1 px-2 pt-2 pb-3 hidden" id="nav-mobile">
-                        <a href="#"
-                            class="bg-sky-500 text-white block px-3 py-2 rounded-md text-base font-medium active:bg-sky-500"
-                            aria-current="page">Trang chủ</a>
+            <div class="sm:hidden absolute top-30 left-0 z-10 w-full bg-sky-1000 text-white" id="mobile-menu">
+                <div class="space-y-1 px-2 pt-2 pb-3 hidden" id="nav-mobile">
+                    <a href="/src/Pages/Home.php"
+                        class="bg-sky-500 text-white block px-3 py-2 rounded-md text-base font-medium active:bg-sky-500"
+                        aria-current="page">Trang chủ</a>
 
-                        <a href="#"
-                            class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Giới
-                            thiệu</a>
+                    <a href="/src/Pages/Introduce.php"
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Giới
+                        thiệu</a>
 
-                        <a href="#"
-                            class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Tour
-                            du lịch</a>
+                    <a href="/src/Pages/AllTour.php"
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Tour
+                        du lịch</a>
 
-                        <a href="#"
-                            class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
-                    </div>
+                    <a href="/faq"
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+
+                    <a href="/src/Pages/Login.php"
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng nhập</a>
+
+                    <a href="/src/Pages/Register.php"
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng ký</a>
                 </div>
-            </nav>
-        </header>
-        <script>
-        const btn = document.getElementById("btn-nav");
-        const nav = document.getElementById("nav-mobile");
-        let showMenu = false;
-        btn.addEventListener('click', toggleMenu);
+            </div>
+        </nav>
+    </header>
+    <script>
+    const btn = document.getElementById("btn-nav");
+    // const login = document.getElementById("login");
+    const nav = document.getElementById("nav-mobile");
+    let showMenu = false;
+    btn.addEventListener('click', toggleMenu);
 
-        function toggleMenu() {
-            if (!showMenu) {
-                nav.classList.remove("hidden");
-                showMenu = true;
-            } else {
-                nav.classList.add("hidden");
-                showMenu = false;
-            }
+    function toggleMenu() {
+        if (!showMenu) {
+            nav.classList.remove("hidden");
+            showMenu = true;
+        } else {
+            nav.classList.add("hidden");
+            showMenu = false;
         }
-        </script>
-        <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'sky-1000': '#154054'
-                    }
+    }
+    </script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'sky-1000': '#154054'
                 }
             }
         }
-        </script>
-    </body>
+    }
+    </script>
+</body>
+
 </html>

@@ -27,23 +27,23 @@
                         <h3 class="font-bold text-base uppercase">Khoảng Giá</h3>
                         <div class="flex flex-col">
                             <div class="flex">
-                                <input type="radio" name="price1" id="price1" value="1" class="checked:accent-blue-500">
+                                <input type="radio" name="price" id="price1" value="1" class="checked:accent-blue-500">
                                 <label for="price1" class="ml-3 text-sm text-slate-400">Dưới 1 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price2" id="price2" value="2" class="checked:accent-blue-500">
+                                <input type="radio" name="price" id="price2" value="2" class="checked:accent-blue-500">
                                 <label for="price2" class="ml-3 text-sm text-slate-400">1 - 3 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price3" id="price3" value="3" class="checked:accent-blue-500">
+                                <input type="radio" name="price" id="price3" value="3" class="checked:accent-blue-500">
                                 <label for="price3" class="ml-3 text-sm text-slate-400">3 - 5 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price4" id="price4" value="4" class="checked:accent-blue-500">
+                                <input type="radio" name="price" id="price4" value="4" class="checked:accent-blue-500">
                                 <label for="price4" class="ml-3 text-sm text-slate-400">5 - 10 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price5" id="price5" value="5" class="checked:accent-blue-500">
+                                <input type="radio" name="price" id="price5" value="5" class="checked:accent-blue-500">
                                 <label for="price5" class="ml-3 text-sm text-slate-400">Trên 10 triệu</label>
                             </div>
                         </div>
@@ -136,7 +136,6 @@
                 <div>
                     <h2 class="font-bold text-xl uppercase block">Tour du lịch</h2>
                     <div class="flex flex-wrap mt-2 tours">
-                        <!-- Hiển thị tát cả tour du lịch -->
                     <?php
                     include "../config/connectDB.php";
                     $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
@@ -178,6 +177,9 @@
             <script type="text/JavaScript">
                 const search = document.getElementById('search');
                 const tours = document.getElementsByClassName('tours')[0];
+                //lọc theo giá
+                //lọc theo địa điểm
+                //lọc theo loại du lịch
                 search.addEventListener('click', function() {
                     tours.innerText = '';
                     const xhr = new XMLHttpRequest();
