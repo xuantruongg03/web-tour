@@ -66,7 +66,7 @@
                     Thanks</h2>
                 <div class="flex mt-10 sm:mt-5 footer__container_register">
                     <div class="flex content-center mx-auto">
-                        <input class="p-2 md:w-80 footer__container_box_input" type="email" placeholder="Email nhận tin"
+                        <input class="p-2 md:w-80 footer__container_box_input focus:outline-none" type="email" placeholder="Email nhận tin"
                             aria-placeholder="Email nhận tin" />
                         <button class="p-2 bg-sky-500 text-white footer__container_box_button">Đăng ký</button>
                     </div>

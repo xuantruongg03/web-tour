@@ -55,7 +55,7 @@
 
     .header__input_search {
         width: 515px;
-        padding: 5.5px 5.5px 5.5px 25px;
+        padding: 5.5px 5.5px 5.5px 15px;
     }
 
     .header__icon_search {

@@ -88,10 +88,10 @@
                 cùng
                 quây quần bên nhau.</p>
         </div>
-        <div class="flex justify-between flex-wrap mx-24">
+        <div class="flex justify-around flex-wrap mx-24">
             <?php
                 include "src/config/connectDB.php";
-                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_type = 'Tour nội địa'";
+                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Trung'";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                 $result_tours = mysqli_query($conn, $tours);
                 $result_tour_image = mysqli_query($conn, $tour_image);
@@ -218,10 +218,10 @@
             <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình
                 mình cùng quây quần bên nhau.</p>
         </div>
-        <div class="flex justify-between flex-wrap mx-24">
+        <div class="flex justify-around flex-wrap mx-24">
             <?php
                 include "src/config/connectDB.php";
-                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_type = 'Tour ngoại quốc'";
+                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Bắc'";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                 $result_tours = mysqli_query($conn, $tours);
                 $result_tour_image = mysqli_query($conn, $tour_image);
