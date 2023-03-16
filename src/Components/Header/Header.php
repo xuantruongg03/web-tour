@@ -1,3 +1,14 @@
+<?php
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    if(isset($_SESSION['user_id'])){
+        $status_login = true;
+    }else{
+        $status_login = false;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,14 +78,9 @@
 
     /* Navbar */
     .header__nav {
-        /* display: flex; */
-        /* justify-content: space-around; */
-        /* align-items: center; */
         padding: 0 !important;
-        /* height: 35%; */
         height: 19px !important;
         margin-top: 3px;
-        ;
         margin: 0 13%;
     }
 
@@ -141,14 +147,27 @@
                 <input class="header__input_search focus:outline-none" type="text" placeholder="Từ khóa tìm kiếm">
                 <i class="fas fa-search header__icon_search"></i>
             </div>
-            <div class = "text-white text-sm hidden sm:block" id="login">
-                <a href="/web-tour/src/Pages/Login.php">
-                    Đăng Nhập
-                </a>
-                <span>/</span>
-                <a href="/web-tour/src/pages/Register.php">
-                    Đăng ký
-                </a>
+            <?php
+                echo $status_login 
+                ? '<div class = "text-white text-sm sm:block" id="login">
+                    <span>Xin chào, </span>
+                    <a href="/web-tour/src/Pages/Profile.php">
+                        '.$_SESSION['username'].'
+                    </a>
+                    <span>/</span>
+                    <a href="/web-tour/src/controllers/Logout.php">
+                        Đăng xuất
+                    </a>'
+                : '<div class = "text-white text-sm hidden sm:block" id="login">
+                    <a href="/web-tour/src/Pages/Login.php">
+                        Đăng Nhập
+                    </a>
+                    <span>/</span>
+                    <a href="/web-tour/src/pages/Register.php">
+                        Đăng ký
+                    </a>
+                </div>'
+            ?>
             </div>
         </div>
         <nav class="sm:h-8">
@@ -215,10 +234,12 @@
                         class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
 
                     <a href="/src/Pages/Login.php"
-                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng nhập</a>
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng
+                        nhập</a>
 
                     <a href="/src/Pages/Register.php"
-                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng ký</a>
+                        class="text-white hover:bg-sky-1000 hover:text-white hover:bg-sky-500 block px-3 py-2 rounded-md text-base font-medium">Đăng
+                        ký</a>
                 </div>
             </div>
         </nav>

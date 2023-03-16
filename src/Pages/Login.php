@@ -1,3 +1,36 @@
+<?php
+    if (isset($_SESSION['username'])) {
+        header("Location: /web-tour/index.php");
+    }
+    session_start();
+    if (isset($_POST['username'])) {
+        include "../config/connectDB.php";
+        $username = $_POST['username'];
+        $check_user = "SELECT * from users where user_username = '$username'";
+        $check_user_result = mysqli_query($conn, $check_user);
+        if (mysqli_num_rows($check_user_result) == 0) {
+            $error_user = "Not found username";
+        } else {
+            $check_user_result_row = mysqli_fetch_array($check_user_result);
+            $password = $_POST['password'];
+            if ($check_user_result_row['user_username'] !== $_POST['username']) {
+                $error_user = "Not found username";
+                exit();
+            } else {
+                if ($check_user_result_row['user_password'] === $_POST['password']) {
+                    $_SESSION['user_id'] = $check_user_result_row['user_id'];
+                    $_SESSION['username'] = $check_user_result_row['user_username'];
+                    header("Location: /web-tour/index.php");
+                } else {
+                    $error_password = "Wrong password";
+                    // exit();
+                }
+            }
+        }
+        mysqli_close($conn);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,22 +74,29 @@
 <body>
     <?php include "../Components/Header/Header.php"?>
     <div class="flex justify-center h-full my-5">
-    <form action="" class="flex flex-col py-10 px-5 border">
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" class="flex flex-col py-10 px-5 border" method="post">
             <h1 class="uppercase font-bold text-2xl text-center my-5">Đăng nhập Tài Khoản</h1>
             <div class="relative mt-2">
-                <input type="text" name="username" id="username"
-                    class="border rounded p-2 my-2 focus:outline-none text-sm w-80">
-                <label for="username" class="absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400"
+                <input type="text" name="username" id="username" value="<?php echo isset($username) ? $username : '' ?>"
+                    class="border rounded p-2 my-2 focus:outline-none text-sm w-80 <?php echo isset($error_user) ? 'border-red-500' : ''?>">
+                <label for="username" class="absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400 <?php echo isset($error_user) ? 'text-red-500' : ''?>"
                     id="labelUsername">Tên đăng nhập</label>
             </div>
-            <label for="" class="text-xs text-red-500 mb-2 hidden" id="validUsername">Tên đăng nhập không tồn tại!</label>
+            <?php
+                if (isset($error_user)) {
+                    echo '<label for="" class="text-xs text-red-500 mb-2" id="validUsername">Tên đăng nhập không tồn tại!</label>';
+                }
+            ?>
             <div class="relative mt-3">
-                <input type="password" name="password" id="password"
-                    class="border rounded p-2 my-2 focus:outline-none text-sm w-80 ">
-                <label for="username" class="absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400"
+                <input type="password" name="password" id="password" value="<?php echo isset($password) ? $password : '' ?>"
+                    class="border rounded p-2 my-2 focus:outline-none text-sm w-80 <?php echo isset($error_password) ? 'border-red-500' : ''?>">
+                <label for="username" class="absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400 <?php echo isset($error_password) ? 'text-red-500' : ''?>"
                     id="labelPassword">Mật khẩu</label>
             </div>
-            <label for="" class="text-xs text-red-500 mb-2 hidden" id="validPassword">Sai mật khẩu!</label>
+            <?php
+                if (isset($error_password)) {
+                    echo '<label for="" class="text-xs text-red-500 mb-2" id="validPassword">Sai mật khẩu!</label>'  ;                }
+            ?>
             <a href="#" class="text-sky-500 font-semibold mt-3 mb-2 underline text-sm">Quên mật khẩu?</a>
             <button type="submit" class="bg-sky-500 text-white font-bold uppercase p-2 rounded" id="btnSubmit">Đăng
                 nhập</button>
@@ -70,6 +110,12 @@
             const password = document.getElementById('password');
             const labelForUsername = document.getElementById('labelUsername');
             const labelForPassword = document.getElementById('labelPassword');
+            if (username.value !== '') {
+                labelForUsername.classList.add('animationIn');
+            }
+            if (password.value !== '') {
+                labelForPassword.classList.add('animationIn');
+            }
             //animation for input username
             username.addEventListener('focus', () => {
                 labelForUsername.classList.remove('animationOut');
@@ -95,37 +141,36 @@
                 }
             })
             //submit handle
-            const btnSubmit = document.getElementById('btnSubmit');
-            btnSubmit.addEventListener('click', (e) => {
-                e.preventDefault();
-                const usernameValue = username.value;
-                const passwordValue = password.value;
-                const validLabelUsername = document.getElementById('validUsername');
-                const validLabelPassword = document.getElementById('validPassword');
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', '../module/checkUser.php', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onload = function (params) {
-                    if (this.status === 200) {
-                        console.log(this.responseText);
-                        const message = this.responseText;
-                        if (message === 'Not found username') {
-                            validLabelUsername.classList.remove('hidden');
-                            username.classList.add('border-red-500');
-                            labelForUsername.classList.add('text-red-400');
-                        } else if (message === 'Wrong password') {
-                            validLabelPassword.classList.remove('hidden');
-                            password.classList.add('border-red-500');
-                            labelForPassword.classList.add('text-red-400');
-                        } else if (message === 'Logged in') {
-                            console.log("Logged in");
-                            //session lưu vào local (Tạo phiên làm việc)
-                            window.location.href = "/web-tour/index.php"
-                        }
-                    }
-                }
-                xhr.send(`username=${usernameValue}&password=${passwordValue}`);
-            })  
+            // const btnSubmit = document.getElementById('btnSubmit');
+            // btnSubmit.addEventListener('click', (e) => {
+            //     e.preventDefault();
+            //     const usernameValue = username.value;
+            //     const passwordValue = password.value;
+            //     const validLabelUsername = document.getElementById('validUsername');
+            //     const validLabelPassword = document.getElementById('validPassword');
+            //     const xhr = new XMLHttpRequest();
+            //     xhr.open('POST', '../module/checkUser.php', true);
+            //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            //     xhr.onload = function (params) {
+            //         if (this.status === 200) {
+            //             const message = this.responseText;
+            //             if (message === 'Not found username') {
+            //                 validLabelUsername.classList.remove('hidden');
+            //                 username.classList.add('border-red-500');
+            //                 labelForUsername.classList.add('text-red-400');
+            //             } else if (message === 'Wrong password') {
+            //                 validLabelPassword.classList.remove('hidden');
+            //                 password.classList.add('border-red-500');
+            //                 labelForPassword.classList.add('text-red-400');
+            //             } else if (message === 'Logged in') {
+            //                 console.log("Logged in");
+            //                 //session lưu vào local (Tạo phiên làm việc)
+            //                 window.location.href = "/web-tour/index.php"
+            //             }
+            //         }
+            //     }
+            //     xhr.send(`username=${usernameValue}&password=${passwordValue}`);
+            // })  
         </script>
 </body>
 </html>
