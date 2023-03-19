@@ -140,37 +140,6 @@
                     labelForPassword.classList.add('animationOut');
                 }
             })
-            //submit handle
-            // const btnSubmit = document.getElementById('btnSubmit');
-            // btnSubmit.addEventListener('click', (e) => {
-            //     e.preventDefault();
-            //     const usernameValue = username.value;
-            //     const passwordValue = password.value;
-            //     const validLabelUsername = document.getElementById('validUsername');
-            //     const validLabelPassword = document.getElementById('validPassword');
-            //     const xhr = new XMLHttpRequest();
-            //     xhr.open('POST', '../module/checkUser.php', true);
-            //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            //     xhr.onload = function (params) {
-            //         if (this.status === 200) {
-            //             const message = this.responseText;
-            //             if (message === 'Not found username') {
-            //                 validLabelUsername.classList.remove('hidden');
-            //                 username.classList.add('border-red-500');
-            //                 labelForUsername.classList.add('text-red-400');
-            //             } else if (message === 'Wrong password') {
-            //                 validLabelPassword.classList.remove('hidden');
-            //                 password.classList.add('border-red-500');
-            //                 labelForPassword.classList.add('text-red-400');
-            //             } else if (message === 'Logged in') {
-            //                 console.log("Logged in");
-            //                 //session lưu vào local (Tạo phiên làm việc)
-            //                 window.location.href = "/web-tour/index.php"
-            //             }
-            //         }
-            //     }
-            //     xhr.send(`username=${usernameValue}&password=${passwordValue}`);
-            // })  
         </script>
 </body>
 </html>

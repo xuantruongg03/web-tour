@@ -12,38 +12,57 @@
     .clip-path {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
     }
+    
+    @keyframes animation {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .animation-btn {
+        animation: animation 1s infinite;
+    }
     </style>
 </head>
 
 <body>
-    <?php include "../Components/Header/Header.php"?>
+    <?php include "../Components/Header/Header.php" ?>
     <div>
-        <div class="">
+        <div class="my-5">
             <h1 class="font-bold text-sky-500 text-3xl text-center my-10">Tour du lịch</h1>
             <div class='flex'>
-                <div class="mx-16 w-56">
+                <!-- style="margin-left: 3rem !important; width: 74rem !important" -->
+                <div class="mx-16 w-50">
                     <h2 class="font-bold text-xl w-32 uppercase">Danh mục</h2>
                     <div class="mt-4">
                         <h3 class="font-bold text-base uppercase">Khoảng Giá</h3>
                         <div class="flex flex-col">
                             <div class="flex">
-                                <input type="radio" name="price" id="price1" value="1" class="checked:accent-blue-500">
+                                <input type="checkbox" name="price" id="price1" value="0" class="checked:accent-blue-500">
                                 <label for="price1" class="ml-3 text-sm text-slate-400">Dưới 1 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price" id="price2" value="2" class="checked:accent-blue-500">
+                                <input type="checkbox" name="price" id="price2" value="1" class="checked:accent-blue-500">
                                 <label for="price2" class="ml-3 text-sm text-slate-400">1 - 3 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price" id="price3" value="3" class="checked:accent-blue-500">
+                                <input type="checkbox" name="price" id="price3" value="2" class="checked:accent-blue-500">
                                 <label for="price3" class="ml-3 text-sm text-slate-400">3 - 5 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price" id="price4" value="4" class="checked:accent-blue-500">
+                                <input type="checkbox" name="price" id="price4" value="3" class="checked:accent-blue-500">
                                 <label for="price4" class="ml-3 text-sm text-slate-400">5 - 10 triệu</label>
                             </div>
                             <div class="flex">
-                                <input type="radio" name="price" id="price5" value="5" class="checked:accent-blue-500">
+                                <input type="checkbox" name="price" id="price5" value="4" class="checked:accent-blue-500">
                                 <label for="price5" class="ml-3 text-sm text-slate-400">Trên 10 triệu</label>
                             </div>
                         </div>
@@ -51,167 +70,132 @@
                     <div class="mt-4">
                         <h1 class="font-bold uppercase">Thời gian</h1>
                         <div class="flex">
-                            <input type="checkbox" name="time1" class="checked:accent-blue-500" id="time1">
+                            <input type="checkbox" name="time" value="0" class="checked:accent-blue-500" id="time1">
                             <label for="time1" class="ml-3 text-sm text-slate-400">8 ngày 7 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time2" class="checked:accent-blue-500" id="time2">
+                            <input type="checkbox" name="time" value="1" class="checked:accent-blue-500" id="time2">
                             <label for="time2" class="ml-3 text-sm text-slate-400">7 ngày 6 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time3" class="checked:accent-blue-500" id="time3">
+                            <input type="checkbox" name="time" value="2" class="checked:accent-blue-500" id="time3">
                             <label for="time3" class="ml-3 text-sm text-slate-400">6 ngày 5 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time4" class="checked:accent-blue-500" id="time4">
+                            <input type="checkbox" name="time" value="3" class="checked:accent-blue-500" id="time4">
                             <label for="time4" class="ml-3 text-sm text-slate-400">5 ngày 4 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time5" class="checked:accent-blue-500" id="time5">
-                            <label for="time5" class="ml-3 text-sm text-slate-400">4 ngày 3 đêm</label>
+                            <input type="checkbox" name="time" value="4" class="checked:accent-blue-500" id="time5">
+                            <label for="time5" class="ml-3 text-sm text-slate-400">3 ngày 2 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time6" class="checked:accent-blue-500" id="time6">
+                            <input type="checkbox" name="time" value="5" class="checked:accent-blue-500" id="time6">
                             <label for="time6" class="ml-3 text-sm text-slate-400">2 ngày 1 đêm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="time7" class="checked:accent-blue-500" id="time7">
+                            <input type="checkbox" name="time" value="6" class="checked:accent-blue-500" id="time7">
                             <label for="time7" class="ml-3 text-sm text-slate-400">Trong ngày</label>
                         </div>
                     </div>
                     <div class="mt-4">
                         <h1 class="font-bold text-base uppercase">Vùng miền</h1>
                         <div class="flex">
-                            <input type="radio" name="dometic" id="dometic1" class="checked:accent-blue-500">
-                            <label for="dometic1" class="ml-3 text-sm text-slate-400">Miền Bắc</label>
+                            <input type="checkbox" name="region" id="region1" value="0" class="checked:accent-blue-500">
+                            <label for="region1" class="ml-3 text-sm text-slate-400">Miền Bắc</label>
                         </div>
                         <div class="flex">
-                            <input type="radio" name="dometic" id="dometic2" class="checked:accent-blue-500">
-                            <label for="dometic2" class="ml-3 text-sm text-slate-400">Miền Trung</label>
+                            <input type="checkbox" name="region" id="region2" value="1" class="checked:accent-blue-500">
+                            <label for="region2" class="ml-3 text-sm text-slate-400">Miền Trung</label>
                         </div>
                         <div class="flex">
-                            <input type="radio" name="dometic" id="dometic3" class="checked:accent-blue-500">
-                            <label for="dometic3" class="ml-3 text-sm text-slate-400">Miền Nam</label>
+                            <input type="checkbox" name="region" id="region3" value="2" class="checked:accent-blue-500">
+                            <label for="region3" class="ml-3 text-sm text-slate-400">Miền Nam</label>
                         </div>
                     </div>
                     <div class="mt-4">
                         <h1 class="font-bold text-base uppercase">Địa điểm</h1>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="place1" class="checked:accent-blue-500">
+                            <input type="checkbox" name="place" id="place1" value="0" class="checked:accent-blue-500">
                             <label for="place1" class="ml-3 text-sm text-slate-400">Ninh Bình</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="place2" class="checked:accent-blue-500">
+                            <input type="checkbox" name="place" id="place2" value="1" class="checked:accent-blue-500">
                             <label for="place2" class="ml-3 text-sm text-slate-400">Đà Nẵng</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="place3" class="checked:accent-blue-500">
+                            <input type="checkbox" name="place" id="place3" value="2" class="checked:accent-blue-500">
                             <label for="place3" class="ml-3 text-sm text-slate-400">Quy Nhơn</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="place4" class="checked:accent-blue-500">
+                            <input type="checkbox" name="place" id="place4" value="3" class="checked:accent-blue-500">
                             <label for="place4" class="ml-3 text-sm text-slate-400">Nha Trang</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="dometic" id="place5" class="checked:accent-blue-500">
+                            <input type="checkbox" name="place" id="place5" value="4" class="checked:accent-blue-500">
                             <label for="place5" class="ml-3 text-sm text-slate-400">Vũng Tàu</label>
                         </div>
                     </div>
                     <div class="mt-4">
                         <h1 class="font-bold text-base uppercase">Loại du lịch</h1>
                         <div class="flex">
-                            <input type="checkbox" name="type1" id="type1" class="checked:accent-blue-500">
+                            <input type="checkbox" name="type" id="type1" value="0" class="checked:accent-blue-500">
                             <label for="type1" class="ml-3 text-sm text-slate-400">Mạo hiểm</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="type2" id="type2" class="checked:accent-blue-500">
+                            <input type="checkbox" name="type" id="type2" value="1" class="checked:accent-blue-500">
                             <label for="type2" class="ml-3 text-sm text-slate-400">Du lịch biển</label>
                         </div>
                         <div class="flex">
-                            <input type="checkbox" name="type3" id="type3" class="checked:accent-blue-500">
-                            <label for="type3" class="ml-3 text-sm text-slate-400">Du lịch</label>
+                            <input type="checkbox" name="type" id="type3" value="2" class="checked:accent-blue-500">
+                            <label for="type3" class="ml-3 text-sm text-slate-400">Du lịch thông thường</label>
                         </div>
                     </div>
                 </div>
+                <!-- <form action="" class="mx-16 w-56">
+                </form> -->
                 <div>
                     <h2 class="font-bold text-xl uppercase block">Tour du lịch</h2>
-                    <div class="flex flex-wrap mt-2 tours">
-                    <?php
-                    include "../config/connectDB.php";
-                    $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
-                    $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
-                    $result_tours = mysqli_query($conn, $tours);
-                    $result_tour_image = mysqli_query($conn, $tour_image);
-                    $tour_image = array();
-                    if (mysqli_num_rows($result_tour_image) > 0) {
-                        while($row = mysqli_fetch_assoc($result_tour_image)) {
-                            $tour_image[$row['tour_id']] = $row['tour_image'];
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-                    if (mysqli_num_rows($result_tours) > 0) {
-                        while($row = mysqli_fetch_assoc($result_tours)) {
-                            $transport = array("train", "plane");
-                            if (array_key_exists($row['tour_id'], $tour_image)) {
-                                $image = $tour_image[$row['tour_id']];
-                            } else {
-                                $image = $transport[rand(0, 1)];
+                    <div class="flex flex-wrap mt-2 tours" id="fillter">
+                        <?php
+                        include "../config/connectDB.php";
+                        $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
+                        $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
+                        $result_tours = mysqli_query($conn, $tours);
+                        $result_tour_image = mysqli_query($conn, $tour_image);
+                        $tour_image = array();
+                        if (mysqli_num_rows($result_tour_image) > 0) {
+                            while ($row = mysqli_fetch_assoc($result_tour_image)) {
+                                $tour_image[$row['tour_id']] = $row['tour_image'];
                             }
-                            $title = $row['tour_title'];
-                            $price = $row['tour_price'];
-                            $sale = $row['tour_discount_rate'];
-                            $id = $row['tour_id'];
-                            include "../Components/Item/Item.php";
+                        } else {
+                            echo "0 results";
                         }
-                    } else {
-                        echo "0 results";
-                    }
-                    mysqli_close($conn);
-                ?>
-                        </div>
+                        if (mysqli_num_rows($result_tours) > 0) {
+                            while ($row = mysqli_fetch_assoc($result_tours)) {
+                                $transport = array("train", "plane");
+                                if (array_key_exists($row['tour_id'], $tour_image)) {
+                                    $image = $tour_image[$row['tour_id']];
+                                } else {
+                                    $image = $transport[rand(0, 1)];
+                                }
+                                $title = $row['tour_title'];
+                                $price = $row['tour_price'];
+                                $sale = $row['tour_discount_rate'];
+                                $id = $row['tour_id'];
+                                include "../Components/Item/Item.php";
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        mysqli_close($conn);
+                        ?>
                     </div>
-                    <button>Tải thêm</button>
                 </div>
             </div>
-            <?php include "../Components/Footer/Footer.php"?>
-            <script type="text/JavaScript">
-                const search = document.getElementById('search');
-                const tours = document.getElementsByClassName('tours')[0];
-                //lọc theo giá
-                //lọc theo địa điểm
-                //lọc theo loại du lịch
-                search.addEventListener('click', function() {
-                    tours.innerText = '';
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('POST', `../module/getTours.php`, true);
-                    xhr.onload = function() {
-                        if (this.status === 200) {
-                            const data = JSON.parse(this.responseText);
-                            if (data.length > 0) {
-                                data.forEach(function(item) {
-                                    const priceSale = item.price - (item.price * item.sale / 100).toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
-                                    const formatPrice = item.price.toLocaleString('vi-VN', {style : 'currency', currency : 'VND'});
-                                    console.log(formatPrice);
-                                    const div = document.createElement('div');
-                                    div.innerHTML = `<div class="xl:w-96 sm:w-10/12 md:w-1/3 h-96 border-2 drop-shadow my-5 mx-2"> <div class="relative group"> ${item.sale > 0 ? `<div class="absolute top-0 left-3 bg-red-600 h-14 w-12 text-white pl-2 pt-2 clip-path"> ${item.sale}% </div>` : ''} <div class="group"> <img class="h-64 w-full" src=${item.image} alt="place"> <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-500 ease-in-out"> </div> <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"> <button class="hidden group-hover:block w-24 h-8 rounded-3xl bg-sky-500 p-1 text-sm text-white font-semibold animation-btn"> <a href="/tour/${item.title}?q=${item.id}">Chi tiết</a> </button> </div> </div> <div class="absolute bottom-3 right-3 flex"> <div class="bg-white p-1 mr-2"> <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_1.png?1671122588148" alt="transport"> </div> <div class="bg-white p-1 mr-2"> <img src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_3.png?1671122588148" alt="transport"> </div> </div> </div> <a href="#" title="${item.title}" class="xl:text-base font-semibold p-2 truncate block cursor-pointer hover:text-sky-500"> ${item.title} </a> <div class="flex border-t-2 p-1 mx-3 drop-shadow-none mt-4"> <p class="xl:text-2xl text-sky-500 font-semibold mr-3 mt-2"> ${formatPrice} VNĐ </p> ${item.sale != 0 ? `<p class="text-sm leading-8 text-gray-400 line-through mt-3"> ${priceSale} VNĐ </p>` : ''} </div>`;
-                                    tours.appendChild(div);
-                                })
-                            } else {
-                                const h1 = document.createElement('h1');
-                                h1.classList.add('text-center', 'text-3xl', 'text-red-500', 'my-10', 'uppercase', 'font-bold', 'w-full');
-                                h1.innerText = 'Không có tour nào phù hợp!';
-                                tours.appendChild(h1);
-                            }
-                        }
-                    }
-                    const price = document.getElementById('price').value;
-                    const type = document.getElementById('type').value;
-                    const place = document.getElementById('place').value;
-                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    xhr.send(`price=${price}&type=${type}&place=${place}`);
-                })
-    </script>
+        </div>
+        <?php include "../Components/Footer/Footer.php" ?>
+        <script src="../js/filter.js"></script>
 </body>
 
 </html>

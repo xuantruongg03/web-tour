@@ -1,9 +1,6 @@
 <?php
-    $price = $_POST['price'];
-    $type = $_POST['type'];
-    $place = $_POST['place'];
+    $tours = $_POST['sql'];
     include "../config/connectDB.php";
-    $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where $price or tour_type = '$type' or tour_place = '$place'";
     $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
     $result_tours = mysqli_query($conn, $tours);
     $result_tour_image = mysqli_query($conn, $tour_image);
