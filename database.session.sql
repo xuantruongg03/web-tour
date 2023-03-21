@@ -274,3 +274,8 @@ INSERT INTO comments (comment_id, tour_id, comment_content, comment_date) VALUE
 (58, 20, 'Tour rất thú vị', NOW()),
 (59, 20, 'Tour rất đẹp', NOW()),
 (60, 20, 'Tour rất tuyệt vời', NOW());
+
+CREATE TABLE email_sales (
+    email_sale_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    email_sale VARCHAR(100) NOT NULL
+);
