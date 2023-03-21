@@ -61,32 +61,6 @@
         </form>
     </div>
     <?php include "../Components/Footer/Footer.php"?>
-    <!-- <script>
-    const btnSubmit = document.getElementById('btnSubmit');
-    btnSubmit.addEventListener('click', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const first_name = name.split(' ').slice(0, -1).join(' ');
-        const last_name = name.split(' ').slice(-1).join(' ');
-        const phone = document.getElementById('phone').value;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '../module/register.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onload = function(params) {
-            if (this.status === 200) {
-                console.log(this.responseText);
-                if (this.responseText === 'Successfully') {
-                    window.location.href = '/web-tour/src/Pages/Login.php';
-                }
-            }
-        }
-        xhr.send(
-            `username=${username}&password=${password}&first_name=${first_name}&last_name=${last_name}&phone=${phone}`
-            );
-    })
-    </script> -->
 </body>
 
 </html>

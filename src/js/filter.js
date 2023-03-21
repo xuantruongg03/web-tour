@@ -41,7 +41,7 @@ const time = document.getElementsByName("time");
 const region = document.getElementsByName("region");
 const place = document.getElementsByName("place");
 const type = document.getElementsByName("type");
-const tours = document.getElementById("fillter");
+const tours = document.getElementById("filter");
 let sql = "SELECT * FROM tours where tour_id is not null ";
 const formatsMoney = (x) => {
     return new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'VND'}).format(x);
@@ -52,7 +52,7 @@ var sqlProxy = new Proxy(
   {
     set: function (target, key, value) {
       target[key] = value;
-        console.log("sql: " + value);
+        // console.log("sql: " + value);
       //gửi truy vấn đến server và lấy dữ liệu hiển thị ra màn hình
       const xhr = new XMLHttpRequest();
       xhr.open("POST", `../controllers/filter.php`, true);

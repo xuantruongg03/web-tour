@@ -67,8 +67,8 @@
                 <div class="flex mt-10 sm:mt-5 footer__container_register">
                     <div class="flex content-center mx-auto">
                         <input class="p-2 md:w-80 footer__container_box_input focus:outline-none" type="email" placeholder="Email nhận tin"
-                            aria-placeholder="Email nhận tin" />
-                        <button class="p-2 bg-sky-500 text-white footer__container_box_button">Đăng ký</button>
+                            aria-placeholder="Email nhận tin" name="email" id="email_sale"/>
+                        <button class="p-2 bg-sky-500 text-white footer__container_box_button" id="btnSubmit">Đăng ký</button>
                     </div>
                 </div>
             </div>
@@ -192,4 +192,29 @@
             </div>
         </div>
     </footer>
+    <script>
+        const email = document.getElementById('email_sale');
+        const btnSubmit = document.getElementById('btnSubmit');
+        btnSubmit.addEventListener('click', function () {
+            if (email.value == '') {
+                alert('Vui lòng nhập email');
+            } else {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/web-tour/src/controllers/RegistSale.php', true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.onload = function () {
+                    if (this.responseText == 'Success') {
+                        alert('Đăng ký thành công');
+                        window.location.reload();
+                        window.scrollTo(0, 0);
+                    } else if (this.responseText == 'Email been used') {
+                        alert(`Email: ${email.value} đã tồn tại! Vui lòng nhập email khác.`);
+                    } else {
+                        alert('Có lỗi xảy ra! Vui lòng thử lại sau');
+                    }
+                }
+                xhr.send(`email=${email.value}`)
+            }
+        })
+    </script>
 </body>

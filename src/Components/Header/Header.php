@@ -143,10 +143,10 @@
             <div class="header__logo">
                 <img class="header__img" src="/web-tour/src/Image/logo.png" alt="logo">
             </div>
-            <div class="header__search">
-                <input class="header__input_search focus:outline-none" type="text" placeholder="Từ khóa tìm kiếm">
-                <i class="fas fa-search header__icon_search"></i>
-            </div>
+            <form action="/web-tour/src/Pages/AllTour.php" method="get" class="header__search">
+                <input class="header__input_search focus:outline-none" type="search" placeholder="Từ khóa tìm kiếm" id="search" name="search">
+                <button type="submit"><i class="fas fa-search header__icon_search"></i></button>
+            </form>
             <?php
                 echo $status_login 
                 ? '<div class = "text-white text-sm sm:block" id="login">
