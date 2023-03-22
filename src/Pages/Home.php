@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../Image/logo.ico" type="image/x-icon">
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custome styles -->
@@ -74,7 +75,7 @@
         <div class="relative">
             <div class="absolute inset-0 bg-black opacity-30 relative z-negative"></div>
             <h1 class="absolute top-1/2 left-1/2 text-white text-center xl:text-6xl font-bold block w-full overflow-hidden whitespace-nowrap font-lora animation_title
-                        md:text-5xl sm:text-4xl">
+                        md:text-5xl sm:text-4xl z-10">
                 Chào mừng bạn đến với Epic Escapes! </h1>
             <img src="https://cdn.vietnambiz.vn/171464876016439296/2020/10/19/quynhonnhintucangotua-nguyen-dung-1603075894101769523040.jpg"
                 alt="background" class="w-full h-96 relative z-negative">
@@ -82,7 +83,7 @@
     </div>
     <div class="mt-12 min-h-screen">
         <div class="mb-12 title relative">
-            <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour trong nước</h1>
+            <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour miền trung</h1>
             <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình
                 mình
                 cùng
@@ -214,7 +215,7 @@
     </div>
     <div class="mt-12 min-h-screen">
         <div class="mb-12 title relative">
-            <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour ngoại quốc</h1>
+            <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour miền bắc</h1>
             <p class="text-center py-2">Sale off tất cả các tour trong tháng này. Nhanh tay đặt tour để cho gia đình
                 mình cùng quây quần bên nhau.</p>
         </div>
