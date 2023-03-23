@@ -68,7 +68,7 @@
                     <div class="flex content-center mx-auto">
                         <input class="p-2 md:w-80 footer__container_box_input focus:outline-none" type="email" placeholder="Email nhận tin"
                             aria-placeholder="Email nhận tin" name="email" id="email_sale"/>
-                        <button class="p-2 bg-sky-500 text-white footer__container_box_button" id="btnSubmit">Đăng ký</button>
+                        <button class="p-2 bg-sky-500 text-white footer__container_box_button" id="btnSubmitSale">Đăng ký</button>
                     </div>
                 </div>
             </div>

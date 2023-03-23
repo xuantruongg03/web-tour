@@ -161,10 +161,10 @@ CREATE TABLE orders (
     order_status VARCHAR(50) NOT NULL,
     FOREIGN KEY (tour_id) REFERENCES tours(tour_id)
 );
-INSERT INTO orders (order_id, tour_id, order_name, order_phone, order_citizen_id, order_date, order_date_start, order_quantity_person, order_total_price, order_status) VALUE 
-(1, 1, 'Nguyễn Văn Giàu', '0988888888', '123456', NOW(), NOW(), 2, 10000000, 'Chờ xử lý'),
-(2, 4, 'Nguyễn Văn Nghèo', '0988796425', '456789', NOW(), NOW(), 4, 20000000, 'Chờ xử lý'),
-(3, 6, 'Lê Thị Ít Tiền', '0987777778', '789123', NOW(), NOW(), 2, 50000000, 'Chờ xử lý');
+-- INSERT INTO orders (order_id, tour_id, order_name, order_phone, order_citizen_id, order_date, order_date_start, order_quantity_person, order_total_price, order_status) VALUE 
+-- (1, 1, 'Nguyễn Văn A', '0988888888', '123456', NOW(), NOW(), 2, 10000000, 'Chờ xử lý'),
+-- (2, 4, 'Nguyễn Văn B', '0988796425', '456789', NOW(), NOW(), 4, 20000000, 'Chờ xử lý'),
+-- (3, 6, 'Lê Thị C', '0987777778', '789123', NOW(), NOW(), 2, 50000000, 'Chờ xử lý');
 
 -- Tạo bảng FAQ
 CREATE TABLE faq (

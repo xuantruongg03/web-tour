@@ -1,5 +1,5 @@
 const email = document.getElementById("email_sale");
-const btnSubmit = document.getElementById("btnSubmit");
+const btnSubmit = document.getElementById("btnSubmitSale");
 btnSubmit.addEventListener("click", function () {
   if (email.value == "") {
     alert("Vui lòng nhập email");

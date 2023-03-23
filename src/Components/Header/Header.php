@@ -198,7 +198,7 @@ if (isset($_SESSION['user_id'])) {
                                     class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center " id="group-dropdown-button">Tour
                                     du lịch
                                 </a>
-                                <div class="absolute text-white flex flex-col top-9 left-1/2 z-50 hidden" id="dropdown-box" style="background-color: #154054; top: 2.4 rem;">
+                                <div class="absolute text-white flex flex-col top-9 z-50 hidden" id="dropdown-box" style="background-color: #154054; top: 2.4rem; left: 34%;">
                                     <div class="p-2 hover:bg-sky-500 group-dropdown z-50" style="min-width: 160px;">
                                         <a href="/web-tour/src/Pages/AllTour.php?search=miền bắc" >Miền Bắc</a>
                                         <div class="absolute text-white flex flex-col top-9 hidden z-50" style="background-color: #154054; top: 0; left: 100%; min-width: 160px;">
@@ -229,6 +229,12 @@ if (isset($_SESSION['user_id'])) {
                                 </div>
 
                                 <a href="/faq" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
+
+                                <?php
+                                    echo $status_login ? 
+                                    '<a href="/web-tour/src/Pages/PostTour.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Thêm tour</a>
+                                    <a href="/web-tour/src/Pages/Orders.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Đơn hàng</a>' : '';
+                                ?>
                             </div>
                         </div>
                     </div>

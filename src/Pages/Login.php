@@ -98,7 +98,7 @@
                     echo '<label for="" class="text-xs text-red-500 mb-2" id="validPassword">Sai mật khẩu!</label>'  ;                }
             ?>
             <a href="#" class="text-sky-500 font-semibold mt-3 mb-2 underline text-sm">Quên mật khẩu?</a>
-            <button type="submit" class="bg-sky-500 text-white font-bold uppercase p-2 rounded" id="btnSubmit">Đăng
+            <button type="submit" class="bg-sky-500 text-white font-bold uppercase p-2 rounded" id="btnSubmitLogin">Đăng
                 nhập</button>
             <h2 class="mt-2 text-sm text-gray-500 text-center">Chưa có tài khoản đăng ký <a
                     href="/web-tour/src/Pages/Register.php" class="text-sky-500">tại đây</a></h2>
