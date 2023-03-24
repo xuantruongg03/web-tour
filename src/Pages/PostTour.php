@@ -52,6 +52,10 @@
                                 result.push(XL_row_object);
                             })
                             console.log(result[0]);
+                            // const xhr = new XMLHttpRequest();
+                            // xhr.open('POST', 'server.php', true);
+                            // xhr.setRequestHeader('Content-Type', 'application/json');
+                            // xhr.send(encodeURI('data=' + JSON.stringify(result[0])));
                         };
                         reader.onerror = function(ex) {
                             console.log(ex);
