@@ -81,7 +81,8 @@
             </div>
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <button class="hidden group-hover:block w-24 h-8 rounded-3xl bg-sky-500 p-1 text-sm text-white font-semibold animation-btn">
-                    <a href="/tour/<?php echo create_slug($title)?>?q=<?php echo $id?>">Chi tiết</a>
+                    <!-- <a href="/tour/<?php echo create_slug($title)?>?q=<?php echo $id?>">Chi tiết</a> -->
+                    <a href="/web-tour/src/Pages/DetailTour.php?q=<?php echo $id ?>">Chi tiết</a>
                 </button>
             </div>
         </div>
