@@ -3,6 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION['user_id'])) {
+    $role = $_SESSION['role'];
     $status_login = true;
 } else {
     $status_login = false;
@@ -231,7 +232,7 @@ if (isset($_SESSION['user_id'])) {
                                 <a href="/faq" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
 
                                 <?php
-                                    echo $status_login ? 
+                                    echo $status_login && $role === 'admin' ? 
                                     '<a href="/web-tour/src/Pages/PostTour.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Thêm tour</a>
                                     <a href="/web-tour/src/Pages/Orders.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Đơn hàng</a>' : '';
                                 ?>

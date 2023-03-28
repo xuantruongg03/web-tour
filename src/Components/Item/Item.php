@@ -124,7 +124,7 @@
         </p>
         <?php
                     if ($sale != 0) {
-                        echo '<p class="text-sm leading-8 text-gray-400 line-through mt-3">' . number_format($price, 0, '', '.') . 'đ</p>';
+                        echo '<p class="text-sm leading-8 text-gray-400 line-through mt-3">' . number_format($price, 0, '', '.') . 'VNĐ</p>';
                     }
                     ?>
     </div>

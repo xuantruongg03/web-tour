@@ -2,7 +2,7 @@ use web_tour;
 
 -- Tạo bảng các tour 
 CREATE TABLE tours (
-    tour_id INT NOT NULL PRIMARY KEY, 
+    tour_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     tour_title VARCHAR(400) NOT NULL, 
     tour_reviews text not null,
     tour_price INT NOT NULL, --Giá tiền 
@@ -41,7 +41,7 @@ INSERT INTO tours (tour_id, tour_title, tour_reviews, tour_price, tour_discount_
 
 -- Tạo bảng ảnh các tour
 CREATE TABLE tour_images (
-    tour_image_id INT NOT NULL PRIMARY KEY, 
+    tour_image_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     tour_id INT NOT NULL, 
     tour_image VARCHAR(500) NOT NULL,
     FOREIGN KEY (tour_id) REFERENCES tours(tour_id)

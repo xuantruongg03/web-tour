@@ -20,6 +20,7 @@
                 if ($check_user_result_row['user_password'] === $_POST['password']) {
                     $_SESSION['user_id'] = $check_user_result_row['user_id'];
                     $_SESSION['username'] = $check_user_result_row['user_username'];
+                    $_SESSION['role'] = $check_user_result_row['user_role'];
                     header("Location: /web-tour/index.php");
                 } else {
                     $error_password = "Wrong password";
