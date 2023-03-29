@@ -92,7 +92,7 @@
         <div class="flex justify-around flex-wrap mx-24">
             <?php
                 include "src/config/connectDB.php";
-                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Trung'";
+                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Trung' limit 3";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                 $result_tours = mysqli_query($conn, $tours);
                 $result_tour_image = mysqli_query($conn, $tour_image);
@@ -222,7 +222,7 @@
         <div class="flex justify-around flex-wrap mx-24">
             <?php
                 include "src/config/connectDB.php";
-                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Bắc'";
+                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_region = 'Miền Bắc' limit 3";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                 $result_tours = mysqli_query($conn, $tours);
                 $result_tour_image = mysqli_query($conn, $tour_image);

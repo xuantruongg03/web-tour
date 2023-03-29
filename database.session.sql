@@ -49,6 +49,13 @@ CREATE TABLE tour_images (
 -- Mẫu
 -- (id theo thứ tự, id tour, link ảnh)
 
+create table sports (
+    sport_id int not null primary key auto_increment,
+    tour_id int not null,
+    sport_name varchar(100) not null,
+    REFERENCES tours(tour_id)
+)
+
 --Insert dữ liệu vào bảng tour_images
 INSERT INTO tour_images (tour_image_id, tour_id, tour_image) VALUE 
 (1, 1, 'https://res.cloudinary.com/dcweof28t/image/upload/v1677038330/web_tour/qn_oezbfx.gif'),
