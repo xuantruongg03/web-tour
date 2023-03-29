@@ -46,7 +46,7 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
               });
             });
             sqlImage = sqlImage.slice(0, -1);
-            let sqlTrans = 'Insert into tour_transportation (tour_id, transportation_id) value ';
+            let sqlTrans = 'Insert into transportation (tour_id, transportation_name) value ';
             transportation.forEach((item) => {
                 let key = Object.keys(item)[0];
                 item[key].forEach((url) => {
