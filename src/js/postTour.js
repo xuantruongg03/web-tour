@@ -33,7 +33,7 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
               ob[item.ID] = item.Img.split(", ");
               img.push(ob);
                 let ob1 = {};
-                ob1[item.ID] = item.Sport.split(", ");
+                ob1[item.ID] = item.Transportation.split(", ");
                 transportation.push(ob1);
             });
             sqlTours = sqlTours.slice(0, -1);
