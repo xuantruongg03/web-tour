@@ -49,10 +49,10 @@ CREATE TABLE tour_images (
 -- Mẫu
 -- (id theo thứ tự, id tour, link ảnh)
 
-create table sports (
-    sport_id int not null primary key auto_increment,
+create table transportation (
+    transportation_id int not null primary key auto_increment,
     tour_id int not null,
-    sport_name varchar(100) not null,
+    transportation_name varchar(100) not null,
     REFERENCES tours(tour_id)
 )
 

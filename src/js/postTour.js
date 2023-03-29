@@ -24,6 +24,7 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
               result.push(XL_row_object);
             });
             let img = [];
+            let transportation = [];
             let sqlTours =
               "INSERT INTO tours (tour_id, tour_title, tour_reviews, tour_price, tour_discount_rate, tour_quantity, tour_place, tour_type, tour_region, tour_times) VALUE ";
             result[0].forEach((item) => {
@@ -31,6 +32,9 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
               let ob = {};
               ob[item.ID] = item.Img.split(", ");
               img.push(ob);
+                let ob1 = {};
+                ob1[item.ID] = item.Sport.split(", ");
+                transportation.push(ob1);
             });
             sqlTours = sqlTours.slice(0, -1);
             // console.log(sqlTours);
@@ -42,7 +46,14 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
               });
             });
             sqlImage = sqlImage.slice(0, -1);
-            // console.log(sqlImage);
+            let sqlTrans = 'Insert into tour_transportation (tour_id, transportation_id) value ';
+            transportation.forEach((item) => {
+                let key = Object.keys(item)[0];
+                item[key].forEach((url) => {
+                    sqlTrans += `(${key}, '${url}'),`;
+                });
+            });
+            sqlTrans = sqlTrans.slice(0, -1);
             const formDT = new FormData();
             formDT.append('sqlTours', sqlTours);
             formDT.append('sqlImage', sqlImage);
@@ -52,9 +63,11 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
             xhr.onload = function() {
                 if (this.status == 200 && this.responseText === 200) {
                     alert('Upload thành công');
+                } else {
+                    alert('Upload thất bại');
                 }
             };
-            xhr.send(`sqlTours=${encodeURIComponent(sqlTours)}&sqlImage=${encodeURIComponent(sqlImage)}`);
+            xhr.send(`sqlTours=${encodeURIComponent(sqlTours)}&sqlImage=${encodeURIComponent(sqlImage)}&sqlTrans=${encodeURIComponent(sqlTrans)}`);
           };
           reader.onerror = function (ex) {
             console.log(ex);
