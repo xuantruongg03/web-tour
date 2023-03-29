@@ -153,6 +153,15 @@ INSERT INTO tour_images (tour_image_id, tour_id, tour_image) VALUE
 (93,20,'https://res.cloudinary.com/dhqbbuzgq/image/upload/v1678775654/web_tour_qng4_lpidhn.jpg'),
 (94,20,'https://res.cloudinary.com/dhqbbuzgq/image/upload/v1678774965/web_tour_ct5_dfn6uk.jpg');
 
+create table cart (
+    cart_id int not null auto_increment primary key,
+    user_id int not null,
+    tour_id int not null,
+    cart_quantity int not null,
+    cart_status varchar(50) not null,
+    foreign key (user_id) references users(user_id),
+    foreign key (tour_id) references tours(tour_id)
+);
 
 -- Tạo bảng đơn hàng  
 CREATE TABLE orders (
