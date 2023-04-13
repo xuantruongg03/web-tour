@@ -7,10 +7,6 @@ const priceArray = [
 ];
 
 const timeArray = [
-  "tour_times = '8 ngày 7 đêm'",
-  "tour_times = '7 ngày 6 đêm'",
-  "tour_times = '6 ngày 5 đêm'",
-  "tour_times = '5 ngày 4 đêm'",
   "tour_times = '3 ngày 2 đêm'",
   "tour_times = '2 ngày 1 đêm'",
   "tour_times = 'Trong ngày'",
@@ -20,14 +16,6 @@ const regionArray = [
   "tour_region = 'Miền Bắc'",
   "tour_region = 'Miền Trung'",
   "tour_region = 'Miền Nam'",
-];
-
-const placeArray = [
-  "tour_place = 'Ninh Bình'",
-  "tour_place = 'Đà Nẵng'",
-  "tour_place = 'Quy Nhơn'",
-  "tour_place = 'Nha Trang'",
-  "tour_place = 'Vũng Tàu'",
 ];
 
 const typeArray = [
@@ -54,7 +42,7 @@ var sqlProxy = new Proxy(
       target[key] = value;
         // console.log("sql: " + value);
       //gửi truy vấn đến server và lấy dữ liệu hiển thị ra màn hình
-      const xhr = new XMLHttpRequest();
+      const xhr = new XMLHttpRequest(); 
       xhr.open("POST", `../controllers/filter.php`, true);
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.onload = function () {
@@ -145,16 +133,6 @@ region.forEach((element) => {
   });
 });
 
-place.forEach((element) => {
-  element.addEventListener("click", () => {
-    const index = element.value;
-    if (element.checked) {
-      sqlProxy.value += ` AND ${placeArray[index]}`;
-    } else {
-      sqlProxy.value = sqlProxy.value.replace(` AND ${placeArray[index]}`, "");
-    }
-  });
-});
 
 type.forEach((element) => {
   element.addEventListener("click", () => {

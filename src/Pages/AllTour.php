@@ -35,127 +35,17 @@
 
 <body>
     <?php include "../Components/Header/Header.php" ?>
+    <?php include "../Components/Zalo.php" ?>
     <div>
         <div class="my-5">
             <h1 class="font-bold text-sky-500 text-3xl text-center my-10">Tour du lịch</h1>
+            <?php if(isset($_GET['search']) && $_GET['search'] == 'quy nhơn') {
+                include "../Components/Intro.php";
+            } ?>
             <div class='flex'>
-                <!-- style="margin-left: 3rem !important; width: 74rem !important" -->
-                <div class="mx-16 w-50">
-                    <h2 class="font-bold text-xl w-32 uppercase">Danh mục</h2>
-                    <div class="mt-4">
-                        <h3 class="font-bold text-base uppercase">Khoảng Giá</h3>
-                        <div class="flex flex-col">
-                            <div class="flex">
-                                <input type="checkbox" name="price" id="price1" value="0" class="checked:accent-blue-500">
-                                <label for="price1" class="ml-3 text-sm text-slate-400">Dưới 1 triệu</label>
-                            </div>
-                            <div class="flex">
-                                <input type="checkbox" name="price" id="price2" value="1" class="checked:accent-blue-500">
-                                <label for="price2" class="ml-3 text-sm text-slate-400">1 - 3 triệu</label>
-                            </div>
-                            <div class="flex">
-                                <input type="checkbox" name="price" id="price3" value="2" class="checked:accent-blue-500">
-                                <label for="price3" class="ml-3 text-sm text-slate-400">3 - 5 triệu</label>
-                            </div>
-                            <div class="flex">
-                                <input type="checkbox" name="price" id="price4" value="3" class="checked:accent-blue-500">
-                                <label for="price4" class="ml-3 text-sm text-slate-400">5 - 10 triệu</label>
-                            </div>
-                            <div class="flex">
-                                <input type="checkbox" name="price" id="price5" value="4" class="checked:accent-blue-500">
-                                <label for="price5" class="ml-3 text-sm text-slate-400">Trên 10 triệu</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h1 class="font-bold uppercase">Thời gian</h1>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="0" class="checked:accent-blue-500" id="time1">
-                            <label for="time1" class="ml-3 text-sm text-slate-400">8 ngày 7 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="1" class="checked:accent-blue-500" id="time2">
-                            <label for="time2" class="ml-3 text-sm text-slate-400">7 ngày 6 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="2" class="checked:accent-blue-500" id="time3">
-                            <label for="time3" class="ml-3 text-sm text-slate-400">6 ngày 5 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="3" class="checked:accent-blue-500" id="time4">
-                            <label for="time4" class="ml-3 text-sm text-slate-400">5 ngày 4 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="4" class="checked:accent-blue-500" id="time5">
-                            <label for="time5" class="ml-3 text-sm text-slate-400">3 ngày 2 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="5" class="checked:accent-blue-500" id="time6">
-                            <label for="time6" class="ml-3 text-sm text-slate-400">2 ngày 1 đêm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="time" value="6" class="checked:accent-blue-500" id="time7">
-                            <label for="time7" class="ml-3 text-sm text-slate-400">Trong ngày</label>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Vùng miền</h1>
-                        <div class="flex">
-                            <input type="checkbox" name="region" id="region1" value="0" class="checked:accent-blue-500">
-                            <label for="region1" class="ml-3 text-sm text-slate-400">Miền Bắc</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="region" id="region2" value="1" class="checked:accent-blue-500">
-                            <label for="region2" class="ml-3 text-sm text-slate-400">Miền Trung</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="region" id="region3" value="2" class="checked:accent-blue-500">
-                            <label for="region3" class="ml-3 text-sm text-slate-400">Miền Nam</label>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Địa điểm</h1>
-                        <div class="flex">
-                            <input type="checkbox" name="place" id="place1" value="0" class="checked:accent-blue-500">
-                            <label for="place1" class="ml-3 text-sm text-slate-400">Ninh Bình</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="place" id="place2" value="1" class="checked:accent-blue-500">
-                            <label for="place2" class="ml-3 text-sm text-slate-400">Đà Nẵng</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="place" id="place3" value="2" class="checked:accent-blue-500">
-                            <label for="place3" class="ml-3 text-sm text-slate-400">Quy Nhơn</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="place" id="place4" value="3" class="checked:accent-blue-500">
-                            <label for="place4" class="ml-3 text-sm text-slate-400">Nha Trang</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="place" id="place5" value="4" class="checked:accent-blue-500">
-                            <label for="place5" class="ml-3 text-sm text-slate-400">Vũng Tàu</label>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <h1 class="font-bold text-base uppercase">Loại du lịch</h1>
-                        <div class="flex">
-                            <input type="checkbox" name="type" id="type1" value="0" class="checked:accent-blue-500">
-                            <label for="type1" class="ml-3 text-sm text-slate-400">Mạo hiểm</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="type" id="type2" value="1" class="checked:accent-blue-500">
-                            <label for="type2" class="ml-3 text-sm text-slate-400">Du lịch biển</label>
-                        </div>
-                        <div class="flex">
-                            <input type="checkbox" name="type" id="type3" value="2" class="checked:accent-blue-500">
-                            <label for="type3" class="ml-3 text-sm text-slate-400">Du lịch thông thường</label>
-                        </div>
-                    </div>
-                </div>
-                <!-- <form action="" class="mx-16 w-56">
-                </form> -->
+                <?php include "../Components/Filter.php" ?>
                 <div>
-                    <h2 class="font-bold text-xl uppercase block">Tour du lịch</h2>
+                    <h2 class="font-bold text-xl uppercase block text-sky-500">Tour du lịch <?php echo isset($_GET['search']) ? $_GET['search'] : null ?></h2>
                     <div class="flex flex-wrap mt-2 tours" id="filter">
                         <?php
                         include "../config/connectDB.php";
@@ -171,7 +61,7 @@
                                     $tours_image_search[$row['tour_id']] = $row['tour_image'];
                                 }
                             } else {
-                                echo "0 results";
+                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
                             
                             if (mysqli_num_rows($result_tours_search) > 0) {
@@ -189,7 +79,7 @@
                                     include "../Components/Item/Item.php";
                                 }
                             } else {
-                                echo "0 results";
+                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
                         } else {
                             $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
@@ -202,7 +92,7 @@
                                     $tour_image[$row['tour_id']] = $row['tour_image'];
                                 }
                             } else {
-                                echo "0 results";
+                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
                             if (mysqli_num_rows($result_tours) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_tours)) {
@@ -218,8 +108,9 @@
                                     $id = $row['tour_id'];
                                     include "../Components/Item/Item.php";
                                 }
+                                // echo (string)$image;
                             } else {
-                                echo "0 results";
+                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
                         }
                         mysqli_close($conn);

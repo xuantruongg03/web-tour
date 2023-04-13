@@ -1,8 +1,8 @@
 <?php
-    if (isset($_SESSION['username'])) {
+        session_start();
+    if (isset($_SESSION['user_id'])) {
         header("Location: /web-tour/index.php");
     }
-    session_start();
     if (isset($_POST['username'])) {
         include "../config/connectDB.php";
         $username = $_POST['username'];
@@ -38,7 +38,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../Lib/tailwind.js"></script>
     <title>Đăng nhập</title>
     <style>
         @keyframes sliderIn {

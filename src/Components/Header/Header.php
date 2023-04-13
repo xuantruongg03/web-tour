@@ -20,7 +20,8 @@ if (isset($_SESSION['user_id'])) {
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- tailwindcss -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="../../Lib/tailwind.js"></script>
     <style>
         * {
             margin: 0;
@@ -146,9 +147,14 @@ if (isset($_SESSION['user_id'])) {
                 <input class="header__input_search focus:outline-none" type="search" placeholder="Từ khóa tìm kiếm" id="search" name="search">
                 <button type="submit"><i class="fas fa-search header__icon_search"></i></button>
             </form>
-            <?php
-            echo $status_login
-                ? '<div class = "text-white text-sm sm:block" id="login">
+            <div class="flex items-center">
+                <!-- <a href="/web-tour/src/Pages/Cart.php" class="text-white mr-2" title="Giỏ hàng">
+                    <i class="fa-solid fa-cart-shopping" class="h-6 w-6"></i>
+                </a>
+                <span class="text-white mr-2">|</span> -->
+                <?php
+                echo $status_login
+                    ? '<div class = "text-white text-sm sm:block" id="login">
                     <span>Xin chào, </span>
                     <a href="/web-tour/src/Pages/Profile.php">
                         ' . $_SESSION['username'] . '
@@ -157,7 +163,7 @@ if (isset($_SESSION['user_id'])) {
                     <a href="/web-tour/src/controllers/Logout.php">
                         Đăng xuất
                     </a>'
-                : '<div class = "text-white text-sm hidden sm:block" id="login">
+                    : '<div class = "text-white text-sm hidden sm:block" id="login">
                     <a href="/web-tour/src/Pages/Login.php">
                         Đăng Nhập
                     </a>
@@ -166,7 +172,8 @@ if (isset($_SESSION['user_id'])) {
                         Đăng ký
                     </a>
                 </div>'
-            ?>
+                ?>
+            </div>
         </div>
         </div>
         <nav class="sm:h-8">
@@ -195,32 +202,32 @@ if (isset($_SESSION['user_id'])) {
                                 <a href="/web-tour/src/Pages/Introduce.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Giới
                                     thiệu</a>
 
-                                <a href="/web-tour/src/Pages/AllTour.php"
-                                    class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center " id="group-dropdown-button">Tour
+                                <a href="/web-tour/src/Pages/AllTour.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center " id="group-dropdown-button">Tour
                                     du lịch
                                 </a>
+
                                 <div class="absolute text-white flex flex-col top-9 z-50 hidden" id="dropdown-box" style="background-color: #154054; top: 2.4rem; left: 34%;">
                                     <div class="p-2 hover:bg-sky-500 group-dropdown z-50" style="min-width: 160px;">
-                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền bắc" >Miền Bắc</a>
+                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền bắc">Miền Bắc</a>
                                         <div class="absolute text-white flex flex-col top-9 hidden z-50" style="background-color: #154054; top: 0; left: 100%; min-width: 160px;">
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=ninh bình" class="p-2 hover:bg-sky-500" >Ninh Bình</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=sa pa" class="p-2 hover:bg-sky-500" >Sa Pa</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=cao bằng" class="p-2 hover:bg-sky-500" >Cao Bằng</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=lạng sơn" class="p-2 hover:bg-sky-500" >Lạng Sơn</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=ninh bình" class="p-2 hover:bg-sky-500">Ninh Bình</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=sa pa" class="p-2 hover:bg-sky-500">Sa Pa</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=cao bằng" class="p-2 hover:bg-sky-500">Cao Bằng</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=lạng sơn" class="p-2 hover:bg-sky-500">Lạng Sơn</a>
                                         </div>
                                     </div>
                                     <div class="p-2 hover:bg-sky-500 group-dropdown z-50" style="min-width: 160px;">
-                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền trung" >Miền Trung, Tây Nguyên</a>
+                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền trung">Miền Trung, Tây Nguyên</a>
                                         <div class="absolute text-white flex flex-col top-9 hidden z-50" style="background-color: #154054; top: 2.2rem; left: 100%; min-width: 160px;">
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=đà nẵng" class="p-2 hover:bg-sky-500" >Đà Nẵng</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=hội an" class="p-2 hover:bg-sky-500" >Hội An</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=quy nhơn" class="p-2 hover:bg-sky-500" >Quy Nhơn</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=gia lai" class="p-2 hover:bg-sky-500" >Gia Lai</a>
-                                            <a href="/web-tour/src/Pages/AllTour.php?search=kon tum" class="p-2 hover:bg-sky-500" >Kon Tum</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=đà nẵng" class="p-2 hover:bg-sky-500">Đà Nẵng</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=hội an" class="p-2 hover:bg-sky-500">Hội An</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=quy nhơn" class="p-2 hover:bg-sky-500">Quy Nhơn</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=gia lai" class="p-2 hover:bg-sky-500">Gia Lai</a>
+                                            <a href="/web-tour/src/Pages/AllTour.php?search=kon tum" class="p-2 hover:bg-sky-500">Kon Tum</a>
                                         </div>
                                     </div>
                                     <div class="p-2 hover:bg-sky-500 group-dropdown z-50" style="min-width: 160px;">
-                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền nam" >Miền Nam</a>
+                                        <a href="/web-tour/src/Pages/AllTour.php?search=miền nam">Miền Nam</a>
                                         <div class="absolute text-white flex flex-col top-9 hidden z-50" style="background-color: #154054; top: 4.4rem; left: 100%;">
                                             <a href="/web-tour/src/Pages/AllTour.php?search=vũng tàu" class="p-2 hover:bg-sky-500" style="min-width: 160px;">Vũng Tàu</a>
                                             <a href="/web-tour/src/Pages/AllTour.php?search=tây ninh" class="p-2 hover:bg-sky-500" style="min-width: 160px;">Tây Ninh</a>
@@ -231,12 +238,17 @@ if (isset($_SESSION['user_id'])) {
 
                                 <a href="/faq" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">FAQ</a>
 
+                                <a href="/web-tour/src/Pages/Cart.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center " id="group-dropdown-button">
+                                    Giỏ hàng
+                                </a>
+
                                 <?php
-                                    echo $status_login && $role === 'admin' ? 
+                                echo $status_login && $role === 'admin' ?
                                     '<a href="/web-tour/src/Pages/PostTour.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Thêm tour</a>
                                     <a href="/web-tour/src/Pages/Orders.php" class="text-white hover:bg-sky-500 hover:text-white py-2 px-2 text-sm font-medium w-24 text-center">Đơn hàng</a>' : '';
                                 ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -268,6 +280,7 @@ if (isset($_SESSION['user_id'])) {
         const nav = document.getElementById("nav-mobile");
         let showMenu = false;
         btn.addEventListener('click', toggleMenu);
+
         function toggleMenu() {
             if (!showMenu) {
                 nav.classList.remove("hidden");
@@ -291,7 +304,7 @@ if (isset($_SESSION['user_id'])) {
         drop_down_box.addEventListener('mouseout', function() {
             drop_down_box.classList.add("hidden");
         });
-        
+
         const group = document.getElementsByClassName("group-dropdown");
         for (let i = 0; i < group.length; i++) {
             group[i].addEventListener('mouseover', function() {

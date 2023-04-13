@@ -53,8 +53,8 @@ create table transportation (
     transportation_id int not null primary key auto_increment,
     tour_id int not null,
     transportation_name varchar(100) not null,
-    REFERENCES tours(tour_id)
-)
+    foreign key (tour_id) REFERENCES tours(tour_id)
+);
 
 --Insert dữ liệu vào bảng tour_images
 INSERT INTO tour_images (tour_image_id, tour_id, tour_image) VALUE 
@@ -159,6 +159,7 @@ create table cart (
     tour_id int not null,
     cart_quantity int not null,
     cart_status varchar(50) not null,
+    date_start varchar(50) not null,
     foreign key (user_id) references users(user_id),
     foreign key (tour_id) references tours(tour_id)
 );

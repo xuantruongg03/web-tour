@@ -61,9 +61,10 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
             xhr.open('POST', '../controllers/post.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onload = function() {
-                if (this.status == 200 && this.responseText === 200) {
+                if (this.responseText == 200) {
                     alert('Upload thành công');
                 } else {
+                    console.log(this.responseText);
                     alert('Upload thất bại');
                 }
             };

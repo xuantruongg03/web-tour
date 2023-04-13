@@ -144,7 +144,7 @@
                             Long</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=vịnh hạ long">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>
@@ -156,7 +156,7 @@
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Sapa</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=sapa">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>
@@ -168,7 +168,7 @@
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Đà Nẵng</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=đà nẵng">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>
@@ -180,7 +180,7 @@
                         <div class="p-2 mb-2 group-hover:-translate-y-50">Đà Lạt</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=đà lạt">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>
@@ -189,10 +189,10 @@
                     <img class="h-full w-full" src="src/Image/place_image_5.png" alt="Vịnh Hạ Long">
                     <div
                         class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
-                        <div class="p-2 mb-2 group-hover:-translate-y-50">Châu Âu</div>
+                        <div class="p-2 mb-2 group-hover:-translate-y-50">Quy Nhơn</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=quy nhơn">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>
@@ -201,10 +201,10 @@
                     <img class="h-full w-full" src="src/Image/place_image_6.png" alt="Vịnh Hạ Long">
                     <div
                         class="absolute top-0 left-0 w-full h-full flex justify-center items-center text-xl font-bold text-white z-50 flex-col group-hover:bg-sky-500 transition duration-500 ease-in-out">
-                        <div class="p-2 mb-2 group-hover:-translate-y-50">Châu Á</div>
+                        <div class="p-2 mb-2 group-hover:-translate-y-50">Phú Quốc</div>
                         <button
                             class="hidden group-hover:block w-28 h-9 p-1 bg-sky-500 border rounded-3xl border-solid border-white text-white font-bold text-sm group-hover:cursor-pointer text-center z-50">
-                            <a href="#">Khám phá</a>
+                            <a href="/web-tour/src/Pages/AllTour.php?search=phú quốc">Khám phá</a>
                         </button>
                     </div>
                     <div class="absolute top-0 left-0 w-full h-full bg-opacity-30 bg-black"></div>

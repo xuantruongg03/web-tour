@@ -11,7 +11,8 @@ if (isset($_POST['sqlTours']) && isset($_POST['sqlImage'])) {
         $resultTrans = mysqli_query($conn, $sqlTrans);
         echo $status = 200;
     } catch (\Throwable $th) {
-        echo $status = 500;
+        // echo $status = 500;
+        echo $th;
     }
 } else {
     $response = array("success" => false, "message" => "No data");

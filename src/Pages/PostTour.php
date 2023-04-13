@@ -17,6 +17,9 @@
 
 <body>
     <h1 class="text-3xl text-sky-500 text-center font-bold mt-8  uppercase">Post tour with excel file</h1>
+    <div class="relative mx-96">
+        <a href="./PostTourWithForm.php"><label class="absolute right-0 top-1 cursor-pointer text-sky-500 hover:underline hover:text-sky-1000">Or Insert tours with form</label></a>
+    </div>
     <div class="flex justify-center h-96 items-center ">
         <div class="w-1/2 h-56 border border-dashed border-black rounded  relative" id="box-excel">
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
