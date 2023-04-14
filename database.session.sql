@@ -2,7 +2,7 @@ use web_tour;
 
 -- Tạo bảng các tour 
 CREATE TABLE tours (
-    tour_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    tour_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     tour_title VARCHAR(400) NOT NULL, 
     tour_reviews text not null,
     tour_price INT NOT NULL, --Giá tiền 
