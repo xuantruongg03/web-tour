@@ -2,7 +2,7 @@ use web_tour;
 
 -- Tạo bảng các tour 
 CREATE TABLE tours (
-    tour_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    tour_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     tour_title VARCHAR(400) NOT NULL, 
     tour_reviews text not null,
     tour_price INT NOT NULL, --Giá tiền 
@@ -224,6 +224,7 @@ INSERT INTO users (user_id, user_firstname, user_lastname, user_phone, user_user
 CREATE TABLE comments (
     comment_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     tour_id INT NOT NULL,
+    name_comment varchar(50),
     comment_content TEXT,
     comment_date DATE NOT NULL,
     FOREIGN KEY (tour_id) REFERENCES tours(tour_id)
