@@ -1,6 +1,3 @@
-<style>
-
-</style>
 
 <div class="mx-16 w-50">
     <h2 class="font-bold text-xl w-32 uppercase text-sky-500">Danh mục</h2>

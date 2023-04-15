@@ -95,7 +95,7 @@
                                         alt="transport">
                                      </div>';
                             } 
-                            if (strcmp($item, "plane") == 0) {
+                            if (strcmp($item, "Plane") == 0) {
                                 echo '<div class="bg-white p-1 mr-2">
                                         <img
                                         src="https://bizweb.dktcdn.net/100/315/268/themes/857513/assets/tag_icon_3.png?1671122588148"

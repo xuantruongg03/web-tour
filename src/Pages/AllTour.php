@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour du lịch</title>
     <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../Lib/tailwind.js"></script>
     <style>
         .clip-path {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
@@ -51,27 +51,32 @@
                         include "../config/connectDB.php";
                         if (isset($_GET['search'])) {
                             $search = $_GET['search'];
-                            $tours_search = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours WHERE tour_title LIKE '%$search%' OR tour_reviews LIKE '%$search%'  OR tour_times LIKE '%$search%' OR tour_type LIKE '%$search%' OR tour_place LIKE '%$search%'";
+                            $tours_search = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours WHERE tour_title LIKE '%$search%' OR tour_reviews LIKE           '%$search%'  OR tour_times LIKE '%$search%' OR tour_type LIKE '%$search%' OR tour_place LIKE '%$search%'";
                             $tours_image_search = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
+                            $tour_trans = "SELECT transportation_name, tour_id FROM transportation";
                             $result_tours_search = mysqli_query($conn, $tours_search);
                             $result_tours_image_search = mysqli_query($conn, $tours_image_search);
+                            $result_trans = mysqli_query($conn, $tour_trans);
+                            $trans = array();
                             $tours_image_search = array();
+
                             if (mysqli_num_rows($result_tours_image_search) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_tours_image_search)) {
                                     $tours_image_search[$row['tour_id']] = $row['tour_image'];
                                 }
-                            } else {
-                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
+                            } 
+                            if(mysqli_num_rows($result_trans) > 0) {
+                                while ($row = mysqli_fetch_array($result_trans)) {
+                                    $trans[$row['tour_id']] = $row['transportation_name'];
+                                }
                             }
                             
                             if (mysqli_num_rows($result_tours_search) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_tours_search)) {
-                                    $transport = array("train", "plane");
+                                    $transport = $trans[$row['tour_id']];
                                     if (array_key_exists($row['tour_id'], $tours_image_search)) {
                                         $image = $tours_image_search[$row['tour_id']];
-                                    } else {
-                                        $image = $transport[rand(0, 1)];
-                                    }
+                                    } 
                                     $title = $row['tour_title'];
                                     $price = $row['tour_price'];
                                     $sale = $row['tour_discount_rate'];
@@ -82,21 +87,50 @@
                                 echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
                         } else {
-                            $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours ";
+                            $row = mysqli_query($conn, "SELECT COUNT(tour_id) as total FROM tours");
+                            $row = mysqli_fetch_assoc($row);
+                            $total_records = $row['total'];
+                            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $limit = 6;
+                            $total_page = ceil($total_records / $limit);
+                            if ($current_page > $total_page) {
+                                $current_page = $total_page;
+                            } else if ($current_page < 1) {
+                                $current_page = 1;
+                            }
+                            $start = ($current_page - 1) * $limit;
+                            $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours LIMIT $start, $limit";
+
                             $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                             $result_tours = mysqli_query($conn, $tours);
                             $result_tour_image = mysqli_query($conn, $tour_image);
+                            $tour_trans = "SELECT transportation_name, tour_id FROM transportation";
                             $tour_image = array();
+                            $result_trans = mysqli_query($conn, $tour_trans);
+                            $trans = array();
                             if (mysqli_num_rows($result_tour_image) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_tour_image)) {
                                     $tour_image[$row['tour_id']] = $row['tour_image'];
                                 }
-                            } else {
-                                echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
+                            } 
+                            if (mysqli_num_rows($result_trans) > 0) {
+                                while ($row = mysqli_fetch_array($result_trans)) {
+                                    $tour_id = $row['tour_id'];
+                                    $transportation_name = $row['transportation_name'];
+                                    
+                                    // Nếu mảng $trans chưa có phần tử tương ứng với tour_id
+                                    // thì thêm phần tử đó vào mảng
+                                    if (!isset($trans[$tour_id])) {
+                                        $trans[$tour_id] = array();
+                                    }
+                                    
+                                    // Thêm phương tiện vào mảng $trans tương ứng với tour_id
+                                    array_push($trans[$tour_id], $transportation_name);
+                                }
                             }
                             if (mysqli_num_rows($result_tours) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_tours)) {
-                                    $transport = array("train", "plane");
+                                    $transport = $trans[$row['tour_id']];
                                     if (array_key_exists($row['tour_id'], $tour_image)) {
                                         $image = $tour_image[$row['tour_id']];
                                     } else {
@@ -108,7 +142,24 @@
                                     $id = $row['tour_id'];
                                     include "../Components/Item/Item.php";
                                 }
-                                // echo (string)$image;
+                                echo ' <div class="w-full flex justify-center items-center"><div class="w-1/3 my-5 flex justify-between items-center">' ;
+
+                                echo ($current_page > 1 ? '<a href="AllTour.php?page=1" class="bg-sky-500 py-1 px-3 text-white rounded hover:opacity-70 mr-3">First</a> <a href="AllTour.php?page='. $current_page - 1 .'" class="bg-sky-500 py-1 px-3 text-white rounded hover:opacity-70 mr-3">Prev</a>' : '');
+
+                                echo '<div class="flex items-center w-2/3 justify-between">';
+
+                                for ($i = 1; $i <= $total_page; $i++) {
+                                    if ($i == $current_page) {
+                                        echo '<a href="AllTour.php?page=' . $i . '" class="bg-sky-500 py-1 px-3 text-white rounded hover:opacity-70">' . $i . '</a>';
+                                    } else {
+                                        echo '<a href="AllTour.php?page=' . $i . '" class="bg-gray-200 py-1 px-3 text-black rounded hover:opacity-70">' . $i . '</a>';
+                                    }
+                                }
+                                echo '
+                                    </div>';
+                                echo ($current_page < $total_page ? '<a href="AllTour.php?page='. $current_page + 1 .'" class="bg-sky-500 py-1 px-3 text-white rounded hover:opacity-70 ml-3">Next</a> <a href="AllTour.php?page='. $total_page .'" class="bg-sky-500 py-1 px-3 text-white rounded hover:opacity-70 ml-3">Last</a>' : '');
+
+                                echo '</div></div>';
                             } else {
                                 echo "<h1 class='text-center text-3xl text-red-500 my-10 uppercase font-bold w-full'>Không có tour nảo phù hợp!</h1>";
                             }
