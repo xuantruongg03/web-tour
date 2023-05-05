@@ -81,14 +81,15 @@
                 alt="background" class="w-full h-96 relative z-negative">
         </div>
     </div>
-    <div class="mt-12 min-h-screen">
-        <div class="mb-12 title relative">
+    <div class="mt-12 ">
+        <div class="mb-12 title relative mx-24">
             <h1 class="font-bold text-sky-500 text-center text-3xl py-2">Tour hot</h1>
+            <p class="text-center">Bạn đang tìm kiếm một tour du lịch trong nước đang hot nhất hiện nay? Bạn muốn có những trải nghiệm đáng nhớ cùng gia đình và bạn bè? Nếu câu trả lời là có, hãy cùng chúng tôi tham khảo những tour du lịch sau đây</p>
         </div>
         <div class="flex justify-around flex-wrap mx-24">
             <?php
                 include "src/config/connectDB.php";
-                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours where tour_visited > 3 limit 3";
+                $tours = "SELECT tour_id, tour_title, tour_price, tour_discount_rate FROM tours order by tour_visited desc  limit 3";
                 $tour_image = "SELECT tour_image_id, tour_id, tour_image FROM tour_images";
                 $result_tours = mysqli_query($conn, $tours);
                 $result_tour_image = mysqli_query($conn, $tour_image);

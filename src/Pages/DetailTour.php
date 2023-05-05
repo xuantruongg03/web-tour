@@ -4,6 +4,8 @@ session_start();
 if(isset($_GET['q'])){
 $id=intval($_GET['q']);
 $sql="select * from tours where tour_id = $id";
+$update = "UPDATE tours SET tour_visited = tour_visited + 1 WHERE tour_id = $id";
+mysqli_query($conn,$update);
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($query);
 $tiltle = $row['tour_title'];
