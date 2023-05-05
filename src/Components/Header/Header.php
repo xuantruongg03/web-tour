@@ -148,10 +148,6 @@ if (isset($_SESSION['user_id'])) {
                 <button type="submit"><i class="fas fa-search header__icon_search"></i></button>
             </form>
             <div class="flex items-center">
-                <!-- <a href="/web-tour/src/Pages/Cart.php" class="text-white mr-2" title="Giỏ hàng">
-                    <i class="fa-solid fa-cart-shopping" class="h-6 w-6"></i>
-                </a>
-                <span class="text-white mr-2">|</span> -->
                 <?php
                 echo $status_login
                     ? '<div class = "text-white text-sm sm:block" id="login">

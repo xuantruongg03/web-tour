@@ -26,9 +26,9 @@ document.getElementById("uploadExcel").addEventListener("change", function () {
             let img = [];
             let transportation = [];
             let sqlTours =
-              "INSERT INTO tours (tour_id, tour_title, tour_reviews, tour_price, tour_discount_rate, tour_quantity, tour_place, tour_type, tour_region, tour_times) VALUE ";
+              "INSERT INTO tours (tour_id, tour_title, tour_reviews, tour_price, tour_discount_rate, tour_quantity, tour_place, tour_type, tour_region, tour_times, tour_hastag) VALUE ";
             result[0].forEach((item) => {
-              sqlTours += `(${item.ID}, '${item.Title}', '${item.Reviews}', ${item.Price}, ${item.Discount}, ${item.Quantity}, '${item.Place}', '${item.Type}', '${item.Region}', '${item.Time}'),`;
+              sqlTours += `(${item.ID}, '${item.Title}', '${item.Reviews}', ${item.Price}, ${item.Discount}, ${item.Quantity}, '${item.Place}', '${item.Type}', '${item.Region}', '${item.Time}', '${item.Hastag}'),`;
               let ob = {};
               ob[item.ID] = item.Img.split(", ");
               img.push(ob);

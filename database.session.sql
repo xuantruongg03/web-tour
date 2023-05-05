@@ -12,6 +12,8 @@ CREATE TABLE tours (
     tour_region VARCHAR(300) NOT NULL, --vùng miền tour (miền bắc, miền trung, miền nam)
     tour_type VARCHAR(50) NOT NULL, --loại tour (du lịch biển, du lịch mạo hiểm, du lịch thông thường),
     tour_times VARCHAR(50) NOT NULL, --thời gian tour (3 ngày 2 đêm, Trong ngày, ...)
+    tour_hastag VARCHAR(255) NOT NULL, --hastag của tour (du lịch, ...)
+    tour_visited int not null default 0, --số lượt xem
 );
 
 INSERT INTO tours (tour_id, tour_title, tour_reviews, tour_price, tour_discount_rate, tour_quantity, tour_place, tour_type, tour_region, tour_times) VALUE 
@@ -158,7 +160,6 @@ create table cart (
     user_id int not null,
     tour_id int not null,
     cart_quantity int not null,
-    cart_status varchar(50) not null,
     date_start varchar(50) not null,
     foreign key (user_id) references users(user_id),
     foreign key (tour_id) references tours(tour_id)
@@ -297,3 +298,11 @@ CREATE TABLE email_sales (
     email_sale_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     email_sale VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE visit (
+    user_id INT NOT NULL,
+    tour_id INT NOT NULL,
+    visit_date DATE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (tour_id) REFERENCES tours(tour_id)
+)
