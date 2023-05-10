@@ -9,8 +9,8 @@ require '../config/connectDB.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>TeaTravel</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Epic Escapes</title>
+    <script src="/web-tour/src/Lib/tailwind.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- css -->
     <style>
@@ -32,6 +32,7 @@ require '../config/connectDB.php';
             background-color: #fff;
             color: #333;
             font: inherit;
+            font-size: 14px
         }
 
         .label-item {
@@ -54,7 +55,6 @@ require '../config/connectDB.php';
         }
 
         .select-item {
-            width: 370px;
             height: 46px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -73,10 +73,8 @@ require '../config/connectDB.php';
 
         .main {
             display: flex;
-            flex: 1 0 auto;
             flex-direction: column;
-            width: 52%;
-            padding: 2em 2em 0 2em;
+            padding: 0 2em 0 2em;
         }
 
         .main__context {
@@ -143,7 +141,6 @@ require '../config/connectDB.php';
         }
 
         .sidebar__body {
-            width: 410px;
             font-size: 14px;
         }
 
@@ -152,7 +149,6 @@ require '../config/connectDB.php';
         }
 
         .sidebar__header {
-            height: 60px;
             border-bottom: 1px solid #ccc;
         }
 
@@ -180,34 +176,14 @@ require '../config/connectDB.php';
 
 <body>
 <?php include "../Components/Header/Header.php" ?>
-    <div style="  display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;">
-
-
-        <main class="main" style="width: 52%;
-                padding: 2em 2em 0 2em; min-width: 1000px; padding-left: 100px;">
-
-            <head class="main__header">
-                <!-- <?php include('message.php'); ?> -->
-                <div style="font-size: 24px; color:#2a9dcc;font-size:28px;padding:5px;">
-                    TeaTravel
-                </div>
-            </head>
-            <div class="main__context flex " style="justify-content: space-between; width: 800px;">
-                <article class="animate-floating-labels row" style="width: 390px;">
+<h1 class="my-5 text-sky-500 text-center text-3xl font-semibold">Thông tin đơn hàng</h1>
+    <div class="mx-40 flex justify-content-around my-10">
+        <main class="main">
+            <div class="main__context flex justify-around items-center">
+                <article class="animate-floating-labels row">
                     <form action="code.php" method="post">
                         <section class="section">
                             <div class="section__header flex" style="justify-content: space-between ; color:#333;font-size:18px;">
-                                <div>
-                                    <h2 style="padding: 5px;">Thông tin nhận hàng
-                                    </h2>
-                                </div>
-                                <div><a class="text-blue-500" href="">
-
-                                    </a></div>
-                            </div>
                             <div class="section__content ">
                                 <div class="fieldset ">
                                     <div class=" field ">
@@ -216,7 +192,6 @@ require '../config/connectDB.php';
 
                                     </div>
                                     <div class="field">
-                                        
                                         <input class="field__input" name="name" value="" type="name" placeholder="Họ và tên" require>
                                     </div>
                                     <div class="field flex w-full " style="justify-content: space-between;">
@@ -431,22 +406,19 @@ require '../config/connectDB.php';
                                         </div>
                                     </div>
                                     <div class="field ">
-                                        
                                         <input class="field__input" type="text" name="diachi" id="" placeholder="Địa chỉ" require>
                                     </div>
                                     <div class=" field  pt-px ">
                                         <div class="">
-                                            
-                                            <select class="select-item form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+                                            <select class="select-item form-select form-select-sm" id="city" aria-label=".form-select-sm">
                                                 <option value="" selected>Chọn tỉnh thành</option>
                                             </select>
                                         </div>
-
                                     </div>
                                     <div class="field">
                                         <div class=" ">
                                             
-                                            <select class="select-item form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+                                            <select class="select-item form-select form-select-sm" id="district" aria-label=".form-select-sm">
                                                 <option value="" selected>Chọn quận huyện</option>
                                             </select>
                                         </div>
@@ -462,14 +434,12 @@ require '../config/connectDB.php';
 
                                     </div>
                                 </div>
-                                <div class="fieldset h-80 " style="width: 370px; ">
+                                <div class="fieldset ">
                                     <h3 class="visually-hidden"></h3>
                                     <div class="field w-full " data-bind-class="{'field--show-floating-label': note}">
                                         <div class="field__input-wrapper w-full">
-                                           
-                                            <textarea class="" style=" resize:none; width: 370px; min-height:100px;border: 1px solid #ccc; padding-left: 12px;border-radius:4px;" name="note" id="note" class="field__input" data-bind="note" placeholder="Ghi chú" require></textarea>
+                                            <textarea class="w-full" style=" resize:none;  min-height:100px;border: 1px solid #ccc; padding-left: 12px;border-radius:4px; font-size:14px " name="note" id="note" class="field__input" data-bind="note" placeholder="Ghi chú" require></textarea>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -478,54 +448,24 @@ require '../config/connectDB.php';
                         </section>
 
                 </article>
-                <div class="w-1/2 ">
-                    <div class="w-full" style="color:#333;font-size:14px;">
-                        <div>
-                            <h2 style="padding: 5px;">Vận chuyển</h2>
-                        </div>
-                        <div class=" field ">
-                                        
-                                        <input class="field__input" placeholder="Vui lòng nhập thông tin giao hàng" require>
-
-                                    </div>
-                    </div>
-                    <div class="" style="color:#333;font-size:18px;">
-                        <div>
-                            <h2 style="padding: 5px;">Thanh toán</h2>
-                        </div>
-                        <div>
-                            <div class="" style=" display:flex;align-items:center; padding: 10px 20px;font-size:14px; margin:0px 0px 16px ; border:1px solid #ccc; border-radius:0.25rem;">
-                                <input class="h-4 w-4"  type="radio" name="thanhtoan">
-                                       
-                                            <label style="margin-left: 10px;" for="">Thanh toán khi giao hàng</label>
-                                        
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
 
         </main>
 
-        <aside class="aside" style="width: 32%;
-            padding: 2em 2em 0 2em; min-width: 1000px; background-color: #FAFAFA; height: 100%  ;">
+        <aside class="aside" style="width: 50%;
+            padding: 0 2em 2rem 2em; background-color: #FAFAFA; height: 100%  ;">
             <div class="sidebar__header">
                 <h1 class="sidebar__title" style="font-size: 1.15rem;">
-                    Đơn hàng (1 sản phẩm)
+                    Đơn hàng
                 </h1>
             </div>
             <div class="sidebar__body mt-2">
                 <?php
                 $total = 0;
-
                 if (isset($_SESSION['user_id'])) {
                     $user_id = $_SESSION['user_id'];
-
                     $query = "SELECT * FROM cart WHERE  user_id = '$user_id' ";
                     $query_run = mysqli_query($conn, $query);
-
-
                     if (mysqli_num_rows($query_run) > 0) {
                         while ($value = mysqli_fetch_assoc($query_run)) {
                             $id = $value['tour_id'];
@@ -538,97 +478,71 @@ require '../config/connectDB.php';
                             $result_title = mysqli_query($conn, $tour_title);
                             // $result_quantity=mysqli_query($conn,$quantity);
                             $result_price = mysqli_query($conn, $price);
-
                 ?>
-                            <div class="content flex ">
-                                <div class="content__img mt-9	mr-4">
-                                    <th class="item--content 4">
+                            <div class="content flex items-center">
+                                <div class="content__img mr-4 w-40">
+                                    <th class="item--content ">
                                         <?php
                                         $row_img = mysqli_fetch_assoc($result_img);
                                         $path = $row_img['tour_image'];
-                                        echo "<img id='father'  style='height: 60px;width:200px  ' src='$path' alt='ảnh'>";
+                                        echo "<img id='father' class='w-full h-16' src='$path' alt='ảnh'>";
                                         ?>
                                     </th>
 
                                 </div>
-                                <div class="content__item--money">
+                                <div class="content__item--money my-2">
                                     <div class="content__item--title">
-                                        <?php
+                                        <p class="font-semibold">Tên tour: <span class="font-medium"><?php
                                         $row_title = mysqli_fetch_assoc($result_title);
                                         $path_title = $row_title['tour_title'];
                                         echo "$path_title ";
-                                        ?>
-                                    </div>
-                                    <div class="money flex justify-between">
-                                        <div>
-                                            <p>Người lớn</p>
-                                        </div>
-                                        <div>
-                                            <?php
-                                            $row_price = mysqli_fetch_assoc($result_price);
-                                            $path_price = $row_price['tour_price'];
-                                            $total_price = $quantity * $path_price;
-                                            ?>
-                                            <?= number_format($total_price); ?>
-                                        </div>
-                                    </div>
-                                    <div class="time">
-                                        <p>Ngày đi</p>
+                                        ?></span> </p>    
                                     </div>
 
-
-
-
-
+                                    <div class="money flex justify-between my-2">
+                                        <p class="font-semibold">Số lượng người: <span class="font-medium"><?php
+                                                $people = $value['cart_quantity'];
+                                                echo "$people";
+                                            ?></span> người </p>
+                                    </div>
+                                    <div class="time my-2">
+                                        <p class="font-semibold">Ngày đi: <span><?php
+                                        $date = $value['date_start'];
+                                            echo "$date ";
+                                        ?></span> </p>
+                                    </div>
                                 </div>
                             </div>
-
-
                 <?php
-                            $total = $total + $total_price;
+                            $row_price = mysqli_fetch_assoc($result_price);
+                            $path_price = $row_price['tour_price'];
+                            $total = $total + $path_price * $quantity;
                         }
                     }
                 }
-
-
-
-
                 ?>
 
-                <div class="function mt-5 mb-5 flex" >
-                    <div class="function__import w-9/12 ">
-                    <input class="field__input" type="text" name="magiamgia" id="" placeholder=" Nhập mã giảm giá" require>
-                    </div>
-                    <button style="width:100px;height:45px;border:1px solid; border-radius:0.25rem;margin-left: 10px;background-color:#2f71a9;color:#fff;">Áp dụng</button>
-                        
-                    
-                </div>
                 <div class="ingredient mt-5 mb-5">
                     <div class="flex justify-between">
                         <div>
                             <p>Tạm tính</p>
                         </div>
                         <div>
-                            <p><?= number_format($total, 2) ?>₫</p>
+                            <p class="font-semibold"><?= number_format($total, 0, " ", ".") ?> VNĐ</p>
                         </div>
-                    </div>
-                    <div>
-                        <p>Phí vận chuyển</p>
                     </div>
                 </div>
                 <div class="function__order mt-5 ">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between my-2">
                         <div>
                             <p>Tổng cộng</p>
                         </div>
                         <div>
-                            <h2><?= number_format($total, 2) ?>₫</h2>
+                            <h2 class="font-semibold"><?= number_format($total, 0, " ", ".") ?> VNĐ</h2>
                         </div>
                     </div>
 
-                    <div class="flex justify-between">
-                        <div><a href="./cart.php">Quay về giỏ hàng</a></div>
-
+                    <div class="flex justify-end">
                      <button style="width:100px;height:45px;border:1px solid; border-radius:0.25rem;margin-left: 10px;background-color:#2f71a9;color:#fff;">Đặt hàng</button>
                     </div>
                     </form>

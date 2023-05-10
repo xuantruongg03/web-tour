@@ -1,6 +1,9 @@
 <?php
 session_start();
 require '../config/connectDB.php';
+if(!isset($_SESSION['user_id'])){
+    header('location:../Pages/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +24,18 @@ require '../config/connectDB.php';
         .btn-list li a {
             background-color: #154054;
             border-radius: 5px;
-            color: #32aad6;
             display: inline-block;
             text-decoration: none;
             transition: 0.3s
         }
 
-
-        .btn-list li a:hover {
-            background-color: #00aeef;
+        .item--content {
+            margin: 0;
         }
-        .item--content{
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
             margin: 0;
         }
     </style>
@@ -40,7 +44,7 @@ require '../config/connectDB.php';
 <body>
     <?php include "../Components/Header/Header.php" ?>
     <div class="cart " style="margin:100px 190px; width: 1150px;">
-        <h1 class="text-center text-sky-500 text-3xl font-bold ">Giỏ hàng</h1>
+        <h1 class="text-center text-sky-500 text-3xl font-bold mb-5">Giỏ hàng</h1>
         <?php
         $total = 0;
         if (isset($_SESSION['user_id'])) {
@@ -49,6 +53,23 @@ require '../config/connectDB.php';
             $query_run = mysqli_query($conn, $query);
             $num = mysqli_num_rows($query_run);
             if ($num > 0) {
+                echo '
+                                    <table class="table " style=" width: 1150px;border: 1px solid #171617; border-radius: 4px;">
+                                    <thead>
+                                        <tr style=" background-color: #154054; color:aliceblue; width: 1150px; height: 50px;  border-radius: 4px;">
+                                            <th class="px-2" >Xóa</th>
+                                            <th>Ảnh tour</th>
+                                            <th>Tên Tour</th>
+                                            <th >Số Lượng người</th>
+                                            <th>Ngày đi</th>
+                                            <th>Giá</th>
+                                            <th>Thành Tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div>
+                                            <tr>
+                                    ';
                 while ($value = mysqli_fetch_assoc($query_run)) {
                     $id = $value['tour_id'];
                     $qrimg = "select tour_image from tour_images where tour_id=$id";
@@ -59,24 +80,8 @@ require '../config/connectDB.php';
                     $result_title = mysqli_query($conn, $tour_title);
                     // $result_quantity=mysqli_query($conn,$quantity);
                     $result_price = mysqli_query($conn, $price);
-                    echo '
-                                    <table class="table " style=" width: 1150px;border: 1px solid #171617; border-radius: 4px;">
-                                    <thead>
-                                        <tr style=" background-color: #154054; color:aliceblue; width: 1150px; height: 50px;  border-radius: 4px;">
-                                            <th class="px-2" >Xóa</th>
-                                            <th>Ảnh tour</th>
-                                            <th>Tên Tour</th>
-                                            <th>Giá</th>
-                                            <th >Số Lượng người</th>
-                                            <th>Thành Tiền</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <div>
-                                            <tr>
-                                                <td class="item--content">
-                                    ';
                     echo "
+                    <td class='item--content'>
                                         <a href='../controllers/deleteCart.php?action=remove&id={$value['cart_id']}'>
                                             <button style='margin-left: 12px;' class='btn btn-danger btn-block'><i class='fa-solid fa-xmark'></i></button>
                                         </a>
@@ -85,63 +90,61 @@ require '../config/connectDB.php';
                     $row_img = mysqli_fetch_assoc($result_img);
                     $path_im = $row_img['tour_image'];
                     echo "
-                                    <td class='item--content 4'>
-                                        <img id='father'  style='margin:10px 0px 5px 40px;height: 90px; ' src='$path_im' alt='ảnh'>
+                                    <td class='item--content 4 flex items-center'>
+                                        <img id='father' style='margin:10px 0px 5px 20px;height: 90px; ' src='$path_im' alt='ảnh'>
                                     </td>
                                     ";
                     $row_title = mysqli_fetch_assoc($result_title);
                     $path_title = $row_title['tour_title'];
                     echo "
-                                        <td class='item--content'>
-                                            <p style='margin-left: 90px;'>$path_title</p>
+                                        <td class='item--content w-96'>
+                                            $path_title
                                         </td>
                                     ";
-                    $row_price = mysqli_fetch_assoc($result_price);
-                    $path_price = $row_price['tour_price'];
-                    echo "
-                        <td class = 'item--content'>
-                            $path_price
-                        </td>
-                    ";
                     echo "
                         <td class = 'item--content'>
                             <input style='margin-left: 50px;background-color: #dddddd; width:30px; '  type='number' value='$quantity'  class='w-full text-center focus:outline-none' >
                         </td>
                         ";
-                        $total_price = $quantity * $path_price;
-                        echo "
+                    echo "
                         <td class = 'item--content'>
-                            <p style='margin-left: 35px;'>$total_price</p>
+                            <p class='text-center'>{$value['date_start']}</p>
+                        </td>
+                    ";
+                    $row_price = mysqli_fetch_assoc($result_price);
+                    $path_price = $row_price['tour_price'];
+                    $price = number_format($path_price, 0, '', '.');
+                    echo "
+                        <td class = 'item--content'>
+                            <p class='text-center'>$price VNĐ</p>
+                        </td>
+                    ";
+                    $total_price = $quantity * $path_price;
+                    $total_price = number_format($total_price, 0, '', '.');
+                    echo "
+                        <td class = 'item--content'>
+                            <p class='text-center'>$total_price VNĐ</p>
                         </td>
                         </tr>
                         </div>
                         ";
-                        $total = $total + $value['cart_quantity'] * $path_price;
-                        $total = number_format($total, 2);
-                        echo "
-                            
+                    $total = $total + $value['cart_quantity'] * $path_price;
+                }
+                $total = number_format($total, 0, '', '.');
+                echo "
     </tbody>
     </table>
-    <div style='display: flex; justify-content: space-between; margin:100px auto;'>
-        <div class='button--next'>
-            <ul class='btn-list'>
-                <li><a style='width: 150px; height: 60px; ' href='Destail.php'>
-                        <p style='margin-top: 20px;'>
-                            <p style='margin-left: 16px;'>Tiếp Tục Đặt Tour</p>
-                        </p>
-                    </a></li>
-            </ul>
-        </div>
+    <div style='display: flex; justify-content: flex-end; margin:100px auto;'>
         <div style='width: 460px; height: 150px;'>
 
             <div style=' height: 85px;'>
-                <div style='display: flex ;justify-content:space-between;border: 0.1px solid #171617; height: 50%;'>
-                    <div>TỔNG GIÁ</div>
-                    <div style='display: flex ;justify-content:space-between;border-left: 0.5px solid #171617; '>$total VNĐ</div>
+                <div style='display: flex ;justify-content:space-between;border: 0.1px solid #171617; align-item:center; padding-left: 10px'>
+                    <p>Tổng giá</p>
+                    <div style='display: flex ;justify-content:space-between;border-left: 0.5px solid #171617; ' class='px-2 py-1'>$total VNĐ</div>
                 </div>
-                <div style='display: flex ;justify-content:space-between;border: 0.1px solid #171617; height: 50%;'>
-                    <div>TỔNG TIỀN THANH TOÁN</div>
-                    <div style='display: flex ;justify-content:space-between;border-left: 0.1px solid #171617; '>$total VNĐ</div>
+                <div style='display: flex ;justify-content:space-between;border: 0.1px solid #171617; align-item:center; padding-left: 10px'>
+                    <p>Tổng tiền thanh toán</p>
+                    <div style='display: flex ;justify-content:space-between;border-left: 0.1px solid #171617; ' class='px-2 py-1'>$total VNĐ</div>
                 </div>
             </div>
 
@@ -152,8 +155,8 @@ require '../config/connectDB.php';
                 <input type='hidden' id='totalPrice' name='tour_img' value='$path_im'>
                 <div style='margin-top: 8px;'>
                     <ul class='btn-list'>
-                        <li><a style='width: 100%; height: 60px;' href='Thanhtoan.php'>
-                                <p style='margin: 20px 160px;align-content: center;'>THANH TOÁN NGAY</p>
+                        <li><a style='width: 100%;' class='text-center py-3 text-white font-bold '  href='Pay.php'>
+                                THANH TOÁN NGAY
                             </a></li>
                     </ul>
 
@@ -163,7 +166,6 @@ require '../config/connectDB.php';
     </div>
     </div>
                         ";
-                }
             } else {
                 echo '<h1 class = "text-center font-bold text-red-500 text-5xl my-10" >Giỏ hàng trống</h1>';
             }
