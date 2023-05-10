@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 480px) {
     .footer__container_box {
-        margin: 0 20px;
+        margin: 0 20px !important;
     }
 
     .footer__container_register {

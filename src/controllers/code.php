@@ -89,7 +89,7 @@ if(isset($_POST['add_to_cart']))
         $_SESSION['cart'][] = $session_array;
         
     }
-    header("Location: cart.php");
+    header("Location: /web-tour/src/Pages/cart.php");
         exit(0);
 }
 ?>
