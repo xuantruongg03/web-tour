@@ -156,6 +156,8 @@ if (isset($_SESSION['user_id'])) {
                         ' . $_SESSION['username'] . '
                     </a>
                     <span>/</span>
+                    <a href="/web-tour/src/Pages/UpdatePassword.php">Đổi mật khẩu</a>
+                    <span>/</span>
                     <a href="/web-tour/src/controllers/Logout.php">
                         Đăng xuất
                     </a>'

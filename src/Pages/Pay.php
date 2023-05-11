@@ -34,7 +34,6 @@ require '../config/connectDB.php';
             font: inherit;
             font-size: 14px
         }
-
         .label-item {
             position: absolute;
 
@@ -95,8 +94,6 @@ require '../config/connectDB.php';
             display: table;
             clear: both;
         }
-
-
 
         .wrap {
             display: block;
@@ -417,12 +414,10 @@ require '../config/connectDB.php';
                                     </div>
                                     <div class="field">
                                         <div class=" ">
-                                            
                                             <select class="select-item form-select form-select-sm" id="district" aria-label=".form-select-sm">
                                                 <option value="" selected>Chọn quận huyện</option>
                                             </select>
                                         </div>
-
                                     </div>
                                     <div class="field">
                                         <div class=" ">
@@ -442,9 +437,7 @@ require '../config/connectDB.php';
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </section>
 
                 </article>

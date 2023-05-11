@@ -208,18 +208,16 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     user_firstname VARCHAR(100) NOT NULL,
     user_lastname VARCHAR(100) NOT NULL,
-    user_phone VARCHAR(50) NOT NULL,
+    user_email VARCHAR(50) NOT NULL,
     user_username VARCHAR(100) NOT NULL,
     user_password VARCHAR(100) NOT NULL,
     user_role VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users (user_id, user_firstname, user_lastname, user_phone, user_username, user_password, user_role) VALUE 
-(1, 'Lê Xuân', 'Trường', '0981793201', 'lexuantruong123', '123456', 'admin'),
-(2, 'Cao Thanh', 'Vương', '0123465798', 'caothanhvuong123', '123456', 'user'),
-(3, 'Nguyễn Thành', 'Quân', '0987654321', 'nguyenthanhquan123', '123456', 'user'),
-(4, 'Tạ Phạm', 'Công', '0987664321', 'taphamcong123', '123456', 'user'),
-(5, 'Đặng Thành', 'Công', '0977654321', 'dangthanhcong123', '123456', 'user');
+INSERT INTO users (user_id, user_firstname, user_lastname, user_email, user_username, user_password, user_role) VALUE 
+(1, 'Lê Xuân', 'Trường', 'lexuantruong098@gmail.com', 'lexuantruong123', '123456', 'admin'),
+(2, 'Cao Thanh', 'Vương', 'caothanhvuong123@gmail.com', 'caothanhvuong123', '123456', 'user'),
+(3, 'Nguyễn Thành', 'Quân', 'nguyenthanhquan123@gmail.com', 'nguyenthanhquan123', '123456', 'user');
 
 
 CREATE TABLE comments (
